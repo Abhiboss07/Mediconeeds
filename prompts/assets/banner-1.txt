@@ -1,0 +1,16 @@
+Generate ONE homepage hero banner. Output: 1920x700 WebP (do NOT combine with any other banner).
+
+Brand: DR. AWISH — Clinical Skincare. Theme: "Healthy Skin Starts Here".
+Mood: premium, clean, dermatological, trustworthy.
+
+Background: soft white-to-mint-green gradient with a subtle water-ripple texture, gentle premium studio lighting, faint translucent glass spheres / water droplets floating, soft out-of-focus green botanical leaves entering from the edges.
+
+LEFT third (text zone, keep clear of products):
+- small top lockup: "DR. AWISH" with "CLINICAL SKINCARE" beneath in fine letter-spaced caps (deep green #1F5A43).
+- large serif headline "Healthy Skin Starts Here" in deep green, two lines.
+- one short supporting line: "Advanced skincare solutions crafted by experts for real, visible results." (muted slate).
+- a solid deep-green pill CTA button reading "SHOP NOW →".
+
+RIGHT side: three Dr Awish products on a clean marble/stone podium — a mint-green cleanser tube, an amber glass serum dropper bottle, and a mint moisturizer jar — with fresh green leaves and floating water bubbles around them. Premium product photography look, soft reflections.
+
+Balanced composition, lots of breathing room, retina-sharp, no clutter, no stock-photo watermark.

@@ -1,0 +1,8 @@
+Generate a single premium e-commerce category icon. Output: 512x512 PNG/WebP, transparent background.
+
+Subject: "Consultation" — a chat/speech bubble with a medical plus.
+Style: modern medical e-commerce, flat icon on a soft rounded-square tile.
+Tile: soft mint / sage green background (#E3F1EA → #D6EBE0 subtle gradient), large rounded corners (~22% radius), gentle soft shadow under the tile.
+Glyph: one bold filled rounded speech bubble in deep green (#1E7A5A / #0E6B4F) with a small tail, and a white medical plus (+) centered inside. Single glyph, centered, generous padding.
+Lighting/perspective: flat front-on, soft top light, subtle inner highlight.
+Must match a unified icon family with clearance / bestsellers / skin-quiz: SAME tile size, SAME corner radius, SAME light direction, SAME shadow, one tint, one glyph. No text, no extra elements, no photorealism.

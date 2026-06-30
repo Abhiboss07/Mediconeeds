@@ -1,0 +1,16 @@
+Generate ONE homepage hero banner. Output: 1920x700 WebP (do NOT combine with any other banner).
+
+Brand: DR. AWISH — Clinical Skincare. Theme: "Science. Care. Confidence."
+Mood: premium luxury beauty, warm, confident, dermatological.
+
+Background: soft peach / blush gradient with faint floating cherry-blossom petals and gentle bokeh, luxury beauty studio lighting.
+
+LEFT third (text zone, keep clear of model/products):
+- small top lockup: "DR. AWISH" with "CLINICAL SKINCARE" beneath in fine letter-spaced caps (charcoal #2B2B2B).
+- large serif headline "Science. Care. Confidence." in warm charcoal, three short lines.
+- one short supporting line: "Dermatologist formulated skincare for every skin type and every concern." (muted brown-grey).
+- a solid terracotta-orange pill CTA button reading "EXPLORE NOW →".
+
+CENTER/RIGHT: a natural-looking female model with healthy glowing skin, hand gently touching her cheek, calm confident expression, soft peach backdrop. Beside her, Dr Awish products on a stone ledge — an amber glass radiance serum dropper, a cream multi-peptide jar, and an SPF 50 sunscreen tube — plus a small clear vase of soft pink flowers.
+
+Balanced composition, premium retouching, retina-sharp, no clutter, no watermark.
