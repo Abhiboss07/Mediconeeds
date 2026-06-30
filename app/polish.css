@@ -1,0 +1,119 @@
+/* Phase 2.x — UI/UX polish layered on top of the cloned styles.
+   Targeted, non-destructive: improves visual quality without changing layout
+   semantics or functionality. */
+
+/* clickable affordance for header buttons wired via JS */
+header button { cursor: pointer; }
+
+/* ============================================================
+   PDP purchase CTA — full premium redesign (Add to Cart / Buy Now)
+   References: Apollo Pharmacy / Tata 1mg / PharmEasy purchase rows.
+   Base styled-component rules (.bHaJSE/.ffNNPl etc.) are loaded earlier in
+   _recovered.css; these single-class rules come later so they win.
+   ============================================================ */
+
+/* the row: equal-width buttons, comfortable 12px gutter (desktop + mobile) */
+.mc-cta-row { gap: 12px !important; }
+.jmvvyD { gap: 12px !important; }
+/* mobile sticky purchase bar — solid backdrop + lift so page content
+   never shows through the gap between buttons */
+.jmvvyD.fixed {
+  background: #fff !important;
+  box-shadow: 0 -3px 16px rgba(15, 27, 77, 0.10);
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+div:has(> #addToCart),
+div:has(> #addToCartDesktop) { gap: 12px !important; }
+
+/* shared button shell — 52px, large pill, 16px medium text, generous padding */
+.bHaJSE, .hthdmC, .ffNNPl, .hszwAe {
+  height: 52px !important;
+  min-height: 52px !important;
+  border-radius: 999px !important;
+  padding: 0 24px !important;
+  gap: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  transition: transform .16s ease, box-shadow .16s ease,
+              background-color .16s ease, filter .16s ease, border-color .16s ease;
+}
+/* icons: consistent 20px, perfectly centred, never squashed */
+.bHaJSE svg, .hthdmC svg, .ffNNPl svg, .hszwAe svg {
+  flex: 0 0 auto;
+  width: 20px !important;
+  height: 20px !important;
+  display: block;
+}
+
+/* Buy Now (filled) — premium gradient + resting depth */
+.ffNNPl, .hszwAe {
+  background: linear-gradient(135deg, #3A63E0 0%, #3056D3 45%, #1F3580 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(48, 86, 211, 0.26);
+}
+.ffNNPl:hover, .hszwAe:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 10px 22px rgba(48, 86, 211, 0.34);
+  transform: translateY(-1px);
+}
+.ffNNPl:active, .hszwAe:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(48, 86, 211, 0.30);
+  filter: brightness(0.98);
+}
+
+/* Add to Cart (outlined) — crisp 1.5px border, soft tint on hover */
+.bHaJSE, .hthdmC {
+  background-color: #fff !important;
+  color: #3056D3 !important;
+  border: 1.5px solid #3056D3 !important;
+}
+.bHaJSE:hover, .hthdmC:hover {
+  background: rgba(48, 86, 211, 0.07) !important;
+  border-color: #1F3580 !important;
+  color: #1F3580 !important;
+  transform: translateY(-1px);
+}
+.bHaJSE:active, .hthdmC:active { transform: translateY(0); }
+.bHaJSE:hover svg path, .hthdmC:hover svg path { fill: #1F3580; }
+
+/* ============================================================
+   Explore sidebar — premium nav (icons + items)
+   ============================================================ */
+.mc-sidebar a {
+  display: block;
+  border-radius: 14px;
+  padding: 10px 6px;
+  transition: background-color .16s ease, transform .16s ease;
+}
+.mc-sidebar a:hover { background: rgba(48,86,211,0.06); transform: translateY(-1px); }
+.mc-sidebar a:active { transform: translateY(0); }
+.mc-sidebar img { transition: transform .16s ease; }
+.mc-sidebar a:hover img { transform: scale(1.06); }
+
+/* ============================================================
+   Hand-written pages — consistent interactive polish
+   ============================================================ */
+a, button { -webkit-tap-highlight-color: transparent; }
+/* product/listing card lift on hover (new React pages only) */
+.mc-card, .mc-content a[href^="/products/"] { transition: box-shadow .16s ease, transform .16s ease; }
+
+/* clean small caption (replaces mis-applied strikethrough price class on
+   non-price subtitles, e.g. New Launches cards) */
+.mc-cap {
+  font-family: Manrope, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #6b7280;
+  text-decoration: none;
+}
