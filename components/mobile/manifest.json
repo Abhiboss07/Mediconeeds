@@ -1,0 +1,125 @@
+{
+  "order": [
+    "header",
+    "banner",
+    "shop-by-category",
+    "top-brands",
+    "m-dental",
+    "m-lab",
+    "trust-strip",
+    "m-premium",
+    "m-consumables",
+    "m-dental-equip",
+    "m-promo",
+    "m-critical",
+    "explore-grid",
+    "refurbished",
+    "testimonials",
+    "bottom-nav",
+    "footer"
+  ],
+  "items": {
+    "header": {
+      "tag": "header",
+      "class": "sticky top-0 z-50 bg-white border-b-[0.5px] border-solid border-[rgba(31,53,128,0.4)] flex flex-col gap-5 px-4 py-2",
+      "id": "",
+      "style": ""
+    },
+    "banner": {
+      "tag": "div",
+      "class": "px-4",
+      "id": "",
+      "style": ""
+    },
+    "shop-by-category": {
+      "tag": "div",
+      "class": "px-4 py-3",
+      "id": "",
+      "style": ""
+    },
+    "top-brands": {
+      "tag": "div",
+      "class": "px-4 py-2 bg-white",
+      "id": "",
+      "style": ""
+    },
+    "m-dental": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "m-lab": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "trust-strip": {
+      "tag": "div",
+      "class": "px-4 pt-4",
+      "id": "",
+      "style": ""
+    },
+    "m-premium": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "m-consumables": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "m-dental-equip": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "m-promo": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "m-critical": {
+      "tag": "div",
+      "class": "px-4 py-6 !py-3",
+      "id": "",
+      "style": ""
+    },
+    "explore-grid": {
+      "tag": "div",
+      "class": "px-4 py-3",
+      "id": "",
+      "style": ""
+    },
+    "refurbished": {
+      "tag": "div",
+      "class": "px-4",
+      "id": "",
+      "style": ""
+    },
+    "testimonials": {
+      "tag": "div",
+      "class": "px-4",
+      "id": "",
+      "style": ""
+    },
+    "bottom-nav": {
+      "tag": "div",
+      "class": "w-full fixed bottom-0 left-0 right-0 z-[1000] sm:hidden h-[78px]",
+      "id": "",
+      "style": "transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform"
+    },
+    "footer": {
+      "tag": "div",
+      "class": "block bg-[#181818] w-full text-xs font-400 lg:font-500 text-[#fff] ",
+      "id": "",
+      "style": ""
+    }
+  }
+}

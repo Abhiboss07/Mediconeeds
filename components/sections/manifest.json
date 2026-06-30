@@ -1,0 +1,116 @@
+{
+  "sections": [
+    "shop-by-category",
+    "top-brands",
+    "sec-02-dental-instruments-consu",
+    "sec-03-lab-bestsellers-view-all",
+    "trust-strip",
+    "sec-05-premium-diagnostics-ot-h",
+    "sec-06-top-selling-consumables-",
+    "sec-07-dental-equipment-zone-vi",
+    "sec-08-diagnostic-precision-pro",
+    "sec-09-top-selling-critical-car",
+    "refurbished",
+    "testimonials"
+  ],
+  "items": {
+    "header": {
+      "tag": "header",
+      "class": "sticky top-0 z-50 bg-white border-b-[0.6px] border-solid border-[rgba(31,53,128,0.6)]",
+      "id": "",
+      "style": ""
+    },
+    "banner": {
+      "tag": "div",
+      "class": "relative pt-2 lg:pt-5",
+      "id": "bannerdiv",
+      "style": ""
+    },
+    "sidebar": {
+      "tag": "div",
+      "class": "shrink-0 bg-white border-r border-[rgba(113,119,134,0.2)] rounded-tr-[24px] lg:sticky lg:top-[68px] lg:self-start lg:h-[100vh] lg:overflow-y-auto hide-scrollbar",
+      "id": "",
+      "style": ""
+    },
+    "footer": {
+      "tag": "div",
+      "class": "block bg-[#181818] w-full text-xs font-400 lg:font-500 text-[#fff] ",
+      "id": "",
+      "style": ""
+    },
+    "shop-by-category": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "top-brands": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8 flex flex-col gap-6 bg-white lg:bg-transparent",
+      "id": "",
+      "style": ""
+    },
+    "sec-02-dental-instruments-consu": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "sec-03-lab-bestsellers-view-all": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "trust-strip": {
+      "tag": "div",
+      "class": "pl-8 ",
+      "id": "",
+      "style": ""
+    },
+    "sec-05-premium-diagnostics-ot-h": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "sec-06-top-selling-consumables-": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "sec-07-dental-equipment-zone-vi": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "sec-08-diagnostic-precision-pro": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "sec-09-top-selling-critical-car": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "refurbished": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    },
+    "testimonials": {
+      "tag": "div",
+      "class": "pl-4 md:pl-8",
+      "id": "",
+      "style": ""
+    }
+  },
+  "content_class": "mx-auto max-w-[84rem] flex mt-4 md:mt-6 items-start",
+  "rightcol_class": "flex-1 min-w-0 overflow-hidden lg:flex lg:flex-col lg:gap-6"
+}
