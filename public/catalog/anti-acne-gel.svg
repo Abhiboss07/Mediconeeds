@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+<rect width="400" height="400" fill="#f5f6fb"/>
+<g>
+  <rect x="150" y="70" width="100" height="34" rx="8" fill="#cf5c2d"/>
+  <rect x="158" y="50" width="84" height="26" rx="6" fill="#cf5c2d" opacity="0.85"/>
+  <rect x="142" y="104" width="116" height="210" rx="22" fill="#ffffff" stroke="#cf5c2d" stroke-width="3"/>
+  <rect x="142" y="150" width="116" height="120" fill="#cf5c2d" opacity="0.10"/>
+  <circle cx="200" cy="135" r="9" fill="#cf5c2d" opacity="0.5"/>
+  <text x="200" y="205" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="15" font-weight="700" fill="#0e1b4d"><tspan x="200" dy="0">Anti-Acne Gel</tspan></text>
+  <text x="200" y="292" text-anchor="middle" font-family="Questrial, Arial, sans-serif" font-size="11" fill="#cf5c2d" font-weight="700" letter-spacing="1">DR AWISH</text>
+</g>
+<text x="200" y="350" text-anchor="middle" font-family="Questrial, Arial, sans-serif" font-size="12" fill="#6b7280">Acne Care</text>
+</svg>

@@ -1,0 +1,42 @@
+{
+ "featuredCollections": [
+  {
+   "handle": "skincare",
+   "title": "Our Bestsellers"
+  },
+  {
+   "handle": "skincare-1",
+   "title": "New Launches"
+  },
+  {
+   "handle": "face-wash",
+   "title": "Summer Essentials"
+  },
+  {
+   "handle": "moisturising",
+   "title": "Lightning Deal"
+  },
+  {
+   "handle": "kit",
+   "title": "Best-Value Kits & Combos"
+  },
+  {
+   "handle": "acne",
+   "title": "Target Acne & Pigmentation"
+  },
+  {
+   "handle": "antiageing",
+   "title": "Anti-Ageing Heroes"
+  }
+ ],
+ "concerns": [
+  "Acne & Pimples",
+  "Pigmentation",
+  "Dullness",
+  "Ageing & Fine Lines",
+  "Dryness",
+  "Oily Skin",
+  "Sensitivity",
+  "Dark Spots"
+ ]
+}

@@ -1,0 +1,1438 @@
+[
+ {
+  "id": "glow-care-combo",
+  "slug": "dr-awish-glow-care-combo",
+  "title": "Dr Awish Glow Care Combo",
+  "subtitle": "Glutathione Face Wash · SPF 50 Sunscreen · Cica-Ceramide Moisturizer",
+  "brand": "Dr Awish",
+  "category": "cream",
+  "categoryName": "Combos & Kits",
+  "color": "#cf5c2d",
+  "ingredient": "Ceramide",
+  "price": 1199,
+  "compareAt": 1799,
+  "discount": 33,
+  "rating": 4.9,
+  "reviews": 312,
+  "image": "/drawish/ChatGPT_Image_Apr_16_2025_12_45_26_PM.png",
+  "variants": [
+   {
+    "title": "Combo of 3",
+    "price": 1199,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "A complete daily-radiance routine — Glutathione face wash, SPF 50 sunscreen and Cica-Ceramide moisturizer.",
+  "real": true
+ },
+ {
+  "id": "daily-essentials-kit",
+  "slug": "dr-awish-daily-essentials-kit",
+  "title": "Dr Awish Daily Essentials Kit",
+  "subtitle": "Face Brightening Wash · Refreshing Body Wash · Invisible SPF 30",
+  "brand": "Dr Awish",
+  "category": "cleanser",
+  "categoryName": "Combos & Kits",
+  "color": "#006f5f",
+  "ingredient": "Vitamin C",
+  "price": 999,
+  "compareAt": 1499,
+  "discount": 33,
+  "rating": 4.8,
+  "reviews": 208,
+  "image": "/drawish/ChatGPT_Image_Apr_16_2025_01_19_37_PM.png",
+  "variants": [
+   {
+    "title": "Kit of 3",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "Everyday essentials — brightening face wash, refreshing body wash and a lightweight invisible SPF 30.",
+  "real": true
+ },
+ {
+  "id": "ketowish-hair-combo",
+  "slug": "dr-awish-ketowish-hair-rescue-combo",
+  "title": "Dr Awish Ketowish Hair Rescue Combo",
+  "subtitle": "Anti-Dandruff + Keratin Smoothening Shampoo",
+  "brand": "Dr Awish",
+  "category": "hair",
+  "categoryName": "Hair Care",
+  "color": "#4770db",
+  "ingredient": "Ceramide",
+  "price": 899,
+  "compareAt": 1299,
+  "discount": 31,
+  "rating": 4.7,
+  "reviews": 156,
+  "image": "/drawish/ChatGPT_Image_Apr_16_2025_01_27_17_PM.png",
+  "variants": [
+   {
+    "title": "Combo of 2",
+    "price": 899,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "Complete hair rescue — anti-dandruff care plus keratin smoothening for healthier, smoother hair.",
+  "real": true
+ },
+ {
+  "id": "retinol-face-serum",
+  "slug": "dr-awish-retinol-face-serum-30ml",
+  "title": "Dr Awish Retinol Face Serum 30ml",
+  "subtitle": "Hydrate · Brighten · Combat Ageing",
+  "brand": "Dr Awish",
+  "category": "serum",
+  "categoryName": "Serum",
+  "color": "#88068e",
+  "ingredient": "Retinol",
+  "price": 649,
+  "compareAt": 999,
+  "discount": 35,
+  "rating": 4.8,
+  "reviews": 421,
+  "image": "/catalog/retinol-0-3-night-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 649,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "A gentle retinol serum that hydrates, brightens and helps combat visible signs of ageing.",
+  "real": true
+ },
+ {
+  "id": "ultra-matte-spf-50",
+  "slug": "ultra-matte-spf-50",
+  "title": "Dr Awish Ultra Matte SPF 50",
+  "brand": "Dr Awish",
+  "category": "sunscreen",
+  "categoryName": "Sunscreen",
+  "color": "#cf5c2d",
+  "ingredient": "SPF 50",
+  "price": 499,
+  "compareAt": 909,
+  "discount": 45,
+  "rating": 4.1,
+  "reviews": 409,
+  "image": "/catalog/ultra-matte-spf-50.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 499,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 499,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 499,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": true,
+  "shortDesc": "Ultra Matte SPF 50 — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "aqua-gel-spf-50-pa",
+  "slug": "aqua-gel-spf-50-pa",
+  "title": "Dr Awish Aqua Gel SPF 50 PA++++",
+  "brand": "Dr Awish",
+  "category": "sunscreen",
+  "categoryName": "Sunscreen",
+  "color": "#cf5c2d",
+  "ingredient": "SPF 50",
+  "price": 449,
+  "compareAt": 689,
+  "discount": 35,
+  "rating": 4,
+  "reviews": 254,
+  "image": "/catalog/aqua-gel-spf-50-pa.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 449,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 449,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 449,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": true,
+  "shortDesc": "Aqua Gel SPF 50 PA++++ — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "tinted-mineral-spf-50",
+  "slug": "tinted-mineral-spf-50",
+  "title": "Dr Awish Tinted Mineral SPF 50",
+  "brand": "Dr Awish",
+  "category": "sunscreen",
+  "categoryName": "Sunscreen",
+  "color": "#cf5c2d",
+  "ingredient": "SPF 50",
+  "price": 999,
+  "compareAt": 1179,
+  "discount": 15,
+  "rating": 3.9,
+  "reviews": 235,
+  "image": "/catalog/tinted-mineral-spf-50.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Tinted Mineral SPF 50 — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "hybrid-spf-50-fluid",
+  "slug": "hybrid-spf-50-fluid",
+  "title": "Dr Awish Hybrid SPF 50 Fluid",
+  "brand": "Dr Awish",
+  "category": "sunscreen",
+  "categoryName": "Sunscreen",
+  "color": "#cf5c2d",
+  "ingredient": "SPF 50",
+  "price": 499,
+  "compareAt": 829,
+  "discount": 40,
+  "rating": 4.7,
+  "reviews": 484,
+  "image": "/catalog/hybrid-spf-50-fluid.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 499,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 499,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 499,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": false,
+  "shortDesc": "Hybrid SPF 50 Fluid — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "kids-sunscreen-spf-50",
+  "slug": "kids-sunscreen-spf-50",
+  "title": "Dr Awish Kids Sunscreen SPF 50",
+  "brand": "Dr Awish",
+  "category": "sunscreen",
+  "categoryName": "Sunscreen",
+  "color": "#cf5c2d",
+  "ingredient": "SPF 50",
+  "price": 399,
+  "compareAt": 469,
+  "discount": 15,
+  "rating": 4.5,
+  "reviews": 196,
+  "image": "/catalog/kids-sunscreen-spf-50.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 399,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": false,
+  "shortDesc": "Kids Sunscreen SPF 50 — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "10-vitamin-c-serum",
+  "slug": "10-vitamin-c-serum",
+  "title": "Dr Awish 10% Vitamin C Serum",
+  "brand": "Dr Awish",
+  "category": "serum",
+  "categoryName": "Serum",
+  "color": "#88068e",
+  "ingredient": "Vitamin C",
+  "price": 999,
+  "compareAt": 1329,
+  "discount": 25,
+  "rating": 4.2,
+  "reviews": 499,
+  "image": "/catalog/10-vitamin-c-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "10% Vitamin C Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "10-niacinamide-serum",
+  "slug": "10-niacinamide-serum",
+  "title": "Dr Awish 10% Niacinamide Serum",
+  "brand": "Dr Awish",
+  "category": "serum",
+  "categoryName": "Serum",
+  "color": "#88068e",
+  "ingredient": "Niacinamide",
+  "price": 899,
+  "compareAt": 1279,
+  "discount": 30,
+  "rating": 4.3,
+  "reviews": 266,
+  "image": "/catalog/10-niacinamide-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 899,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 899,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": false,
+  "shortDesc": "10% Niacinamide Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "2-hyaluronic-serum",
+  "slug": "2-hyaluronic-serum",
+  "title": "Dr Awish 2% Hyaluronic Serum",
+  "brand": "Dr Awish",
+  "category": "serum",
+  "categoryName": "Serum",
+  "color": "#88068e",
+  "ingredient": "Hyaluronic",
+  "price": 449,
+  "compareAt": 819,
+  "discount": 45,
+  "rating": 4.8,
+  "reviews": 338,
+  "image": "/catalog/2-hyaluronic-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 449,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 449,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": false,
+  "shortDesc": "2% Hyaluronic Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "kojic-acid-serum",
+  "slug": "kojic-acid-serum",
+  "title": "Dr Awish Kojic Acid Serum",
+  "brand": "Dr Awish",
+  "category": "serum",
+  "categoryName": "Serum",
+  "color": "#88068e",
+  "ingredient": "Kojic Acid",
+  "price": 699,
+  "compareAt": 1269,
+  "discount": 45,
+  "rating": 4.1,
+  "reviews": 388,
+  "image": "/catalog/kojic-acid-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 699,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": true,
+  "shortDesc": "Kojic Acid Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "retinol-0-3-night-serum",
+  "slug": "retinol-0-3-night-serum",
+  "title": "Dr Awish Retinol 0.3% Night Serum",
+  "brand": "Dr Awish",
+  "category": "serum",
+  "categoryName": "Serum",
+  "color": "#88068e",
+  "ingredient": "Retinol",
+  "price": 849,
+  "compareAt": 1209,
+  "discount": 30,
+  "rating": 3.9,
+  "reviews": 465,
+  "image": "/catalog/retinol-0-3-night-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 849,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 849,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "Retinol 0.3% Night Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "gentle-foaming-cleanser",
+  "slug": "gentle-foaming-cleanser",
+  "title": "Dr Awish Gentle Foaming Cleanser",
+  "brand": "Dr Awish",
+  "category": "cleanser",
+  "categoryName": "Cleanser",
+  "color": "#006f5f",
+  "ingredient": "Hyaluronic",
+  "price": 649,
+  "compareAt": 999,
+  "discount": 35,
+  "rating": 4.9,
+  "reviews": 390,
+  "image": "/catalog/gentle-foaming-cleanser.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 649,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": false,
+  "shortDesc": "Gentle Foaming Cleanser — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "salicylic-acne-face-wash",
+  "slug": "salicylic-acne-face-wash",
+  "title": "Dr Awish Salicylic Acne Face Wash",
+  "brand": "Dr Awish",
+  "category": "cleanser",
+  "categoryName": "Cleanser",
+  "color": "#006f5f",
+  "ingredient": "Salicylic",
+  "price": 849,
+  "compareAt": 1699,
+  "discount": 50,
+  "rating": 4.4,
+  "reviews": 26,
+  "image": "/catalog/salicylic-acne-face-wash.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 849,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 849,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 849,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Salicylic Acne Face Wash — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "vitamin-c-brightening-wash",
+  "slug": "vitamin-c-brightening-wash",
+  "title": "Dr Awish Vitamin C Brightening Wash",
+  "brand": "Dr Awish",
+  "category": "cleanser",
+  "categoryName": "Cleanser",
+  "color": "#006f5f",
+  "ingredient": "Vitamin C",
+  "price": 699,
+  "compareAt": 999,
+  "discount": 30,
+  "rating": 4.4,
+  "reviews": 392,
+  "image": "/catalog/vitamin-c-brightening-wash.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 699,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 699,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": true,
+  "shortDesc": "Vitamin C Brightening Wash — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "hydrating-cream-cleanser",
+  "slug": "hydrating-cream-cleanser",
+  "title": "Dr Awish Hydrating Cream Cleanser",
+  "brand": "Dr Awish",
+  "category": "cleanser",
+  "categoryName": "Cleanser",
+  "color": "#006f5f",
+  "ingredient": "Hyaluronic",
+  "price": 699,
+  "compareAt": 1169,
+  "discount": 40,
+  "rating": 4.4,
+  "reviews": 407,
+  "image": "/catalog/hydrating-cream-cleanser.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 699,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": true,
+  "shortDesc": "Hydrating Cream Cleanser — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "oil-free-gel-moisturiser",
+  "slug": "oil-free-gel-moisturiser",
+  "title": "Dr Awish Oil-Free Gel Moisturiser",
+  "brand": "Dr Awish",
+  "category": "moisturiser",
+  "categoryName": "Moisturiser",
+  "color": "#3f8ddf",
+  "ingredient": "Hyaluronic",
+  "price": 699,
+  "compareAt": 1079,
+  "discount": 35,
+  "rating": 3.9,
+  "reviews": 113,
+  "image": "/catalog/oil-free-gel-moisturiser.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 699,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": true,
+  "shortDesc": "Oil-Free Gel Moisturiser — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "ceramide-repair-moisturiser",
+  "slug": "ceramide-repair-moisturiser",
+  "title": "Dr Awish Ceramide Repair Moisturiser",
+  "brand": "Dr Awish",
+  "category": "moisturiser",
+  "categoryName": "Moisturiser",
+  "color": "#3f8ddf",
+  "ingredient": "Ceramide",
+  "price": 749,
+  "compareAt": 999,
+  "discount": 25,
+  "rating": 4.2,
+  "reviews": 58,
+  "image": "/catalog/ceramide-repair-moisturiser.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 749,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": false,
+  "shortDesc": "Ceramide Repair Moisturiser — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "hyaluronic-daily-moisturiser",
+  "slug": "hyaluronic-daily-moisturiser",
+  "title": "Dr Awish Hyaluronic Daily Moisturiser",
+  "brand": "Dr Awish",
+  "category": "moisturiser",
+  "categoryName": "Moisturiser",
+  "color": "#3f8ddf",
+  "ingredient": "Hyaluronic",
+  "price": 399,
+  "compareAt": 729,
+  "discount": 45,
+  "rating": 4.5,
+  "reviews": 351,
+  "image": "/catalog/hyaluronic-daily-moisturiser.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 399,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 399,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 399,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": true,
+  "shortDesc": "Hyaluronic Daily Moisturiser — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "barrier-restore-cream",
+  "slug": "barrier-restore-cream",
+  "title": "Dr Awish Barrier Restore Cream",
+  "brand": "Dr Awish",
+  "category": "moisturiser",
+  "categoryName": "Moisturiser",
+  "color": "#3f8ddf",
+  "ingredient": "Ceramide",
+  "price": 999,
+  "compareAt": 1109,
+  "discount": 10,
+  "rating": 3.9,
+  "reviews": 64,
+  "image": "/catalog/barrier-restore-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "Barrier Restore Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "under-eye-brightening-cream",
+  "slug": "under-eye-brightening-cream",
+  "title": "Dr Awish Under-Eye Brightening Cream",
+  "brand": "Dr Awish",
+  "category": "cream",
+  "categoryName": "Face Cream",
+  "color": "#936a6a",
+  "ingredient": "Hyaluronic",
+  "price": 349,
+  "compareAt": 439,
+  "discount": 20,
+  "rating": 4,
+  "reviews": 405,
+  "image": "/catalog/under-eye-brightening-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 349,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 349,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": false,
+  "shortDesc": "Under-Eye Brightening Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "anti-pigmentation-cream",
+  "slug": "anti-pigmentation-cream",
+  "title": "Dr Awish Anti-Pigmentation Cream",
+  "brand": "Dr Awish",
+  "category": "cream",
+  "categoryName": "Face Cream",
+  "color": "#936a6a",
+  "ingredient": "Hyaluronic",
+  "price": 899,
+  "compareAt": 1199,
+  "discount": 25,
+  "rating": 4.9,
+  "reviews": 139,
+  "image": "/catalog/anti-pigmentation-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 899,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "Anti-Pigmentation Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "night-repair-cream",
+  "slug": "night-repair-cream",
+  "title": "Dr Awish Night Repair Cream",
+  "brand": "Dr Awish",
+  "category": "cream",
+  "categoryName": "Face Cream",
+  "color": "#936a6a",
+  "ingredient": "Hyaluronic",
+  "price": 999,
+  "compareAt": 1249,
+  "discount": 20,
+  "rating": 4.1,
+  "reviews": 436,
+  "image": "/catalog/night-repair-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "Night Repair Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "spf-day-cream",
+  "slug": "spf-day-cream",
+  "title": "Dr Awish SPF Day Cream",
+  "brand": "Dr Awish",
+  "category": "cream",
+  "categoryName": "Face Cream",
+  "color": "#936a6a",
+  "ingredient": "SPF 50",
+  "price": 399,
+  "compareAt": 469,
+  "discount": 15,
+  "rating": 4.3,
+  "reviews": 408,
+  "image": "/catalog/spf-day-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 399,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 399,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 399,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "SPF Day Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "anti-hairfall-serum",
+  "slug": "anti-hairfall-serum",
+  "title": "Dr Awish Anti-Hairfall Serum",
+  "brand": "Dr Awish",
+  "category": "hair",
+  "categoryName": "Hair Care",
+  "color": "#4770db",
+  "ingredient": "Hyaluronic",
+  "price": 799,
+  "compareAt": 1229,
+  "discount": 35,
+  "rating": 4.4,
+  "reviews": 490,
+  "image": "/catalog/anti-hairfall-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 799,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 799,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Anti-Hairfall Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "redensyl-hair-tonic",
+  "slug": "redensyl-hair-tonic",
+  "title": "Dr Awish Redensyl Hair Tonic",
+  "brand": "Dr Awish",
+  "category": "hair",
+  "categoryName": "Hair Care",
+  "color": "#4770db",
+  "ingredient": "Hyaluronic",
+  "price": 849,
+  "compareAt": 1539,
+  "discount": 45,
+  "rating": 4.5,
+  "reviews": 433,
+  "image": "/catalog/redensyl-hair-tonic.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 849,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Redensyl Hair Tonic — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "biotin-shampoo",
+  "slug": "biotin-shampoo",
+  "title": "Dr Awish Biotin Shampoo",
+  "brand": "Dr Awish",
+  "category": "hair",
+  "categoryName": "Hair Care",
+  "color": "#4770db",
+  "ingredient": "Hyaluronic",
+  "price": 849,
+  "compareAt": 939,
+  "discount": 10,
+  "rating": 4.2,
+  "reviews": 215,
+  "image": "/catalog/biotin-shampoo.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 849,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 849,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": true,
+  "shortDesc": "Biotin Shampoo — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "scalp-detox-cleanser",
+  "slug": "scalp-detox-cleanser",
+  "title": "Dr Awish Scalp Detox Cleanser",
+  "brand": "Dr Awish",
+  "category": "hair",
+  "categoryName": "Hair Care",
+  "color": "#4770db",
+  "ingredient": "Hyaluronic",
+  "price": 349,
+  "compareAt": 499,
+  "discount": 30,
+  "rating": 4,
+  "reviews": 56,
+  "image": "/catalog/scalp-detox-cleanser.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 349,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 349,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": true,
+  "shortDesc": "Scalp Detox Cleanser — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "anti-acne-gel",
+  "slug": "anti-acne-gel",
+  "title": "Dr Awish Anti-Acne Gel",
+  "brand": "Dr Awish",
+  "category": "acne",
+  "categoryName": "Acne Care",
+  "color": "#cf5c2d",
+  "ingredient": "Salicylic",
+  "price": 549,
+  "compareAt": 649,
+  "discount": 15,
+  "rating": 4.8,
+  "reviews": 234,
+  "image": "/catalog/anti-acne-gel.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 549,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 549,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "Anti-Acne Gel — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "spot-corrector",
+  "slug": "spot-corrector",
+  "title": "Dr Awish Spot Corrector",
+  "brand": "Dr Awish",
+  "category": "acne",
+  "categoryName": "Acne Care",
+  "color": "#cf5c2d",
+  "ingredient": "Hyaluronic",
+  "price": 499,
+  "compareAt": 619,
+  "discount": 20,
+  "rating": 4.5,
+  "reviews": 352,
+  "image": "/catalog/spot-corrector.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 499,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "Spot Corrector — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "salicylic-toner",
+  "slug": "salicylic-toner",
+  "title": "Dr Awish Salicylic Toner",
+  "brand": "Dr Awish",
+  "category": "acne",
+  "categoryName": "Acne Care",
+  "color": "#cf5c2d",
+  "ingredient": "Salicylic",
+  "price": 999,
+  "compareAt": 1669,
+  "discount": 40,
+  "rating": 4,
+  "reviews": 55,
+  "image": "/catalog/salicylic-toner.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": false,
+  "shortDesc": "Salicylic Toner — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "retinol-night-cream",
+  "slug": "retinol-night-cream",
+  "title": "Dr Awish Retinol Night Cream",
+  "brand": "Dr Awish",
+  "category": "antiageing",
+  "categoryName": "Anti-Ageing",
+  "color": "#88068e",
+  "ingredient": "Retinol",
+  "price": 349,
+  "compareAt": 409,
+  "discount": 15,
+  "rating": 4.3,
+  "reviews": 438,
+  "image": "/catalog/retinol-night-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 349,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 349,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 349,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Retinol Night Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "peptide-firming-serum",
+  "slug": "peptide-firming-serum",
+  "title": "Dr Awish Peptide Firming Serum",
+  "brand": "Dr Awish",
+  "category": "antiageing",
+  "categoryName": "Anti-Ageing",
+  "color": "#88068e",
+  "ingredient": "Retinol",
+  "price": 599,
+  "compareAt": 669,
+  "discount": 10,
+  "rating": 4.4,
+  "reviews": 132,
+  "image": "/catalog/peptide-firming-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 599,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 599,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": true,
+  "shortDesc": "Peptide Firming Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "collagen-boost-cream",
+  "slug": "collagen-boost-cream",
+  "title": "Dr Awish Collagen Boost Cream",
+  "brand": "Dr Awish",
+  "category": "antiageing",
+  "categoryName": "Anti-Ageing",
+  "color": "#88068e",
+  "ingredient": "Retinol",
+  "price": 799,
+  "compareAt": 1329,
+  "discount": 40,
+  "rating": 4,
+  "reviews": 259,
+  "image": "/catalog/collagen-boost-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 799,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 799,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 799,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": true,
+  "shortDesc": "Collagen Boost Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "kojic-dark-spot-serum",
+  "slug": "kojic-dark-spot-serum",
+  "title": "Dr Awish Kojic Dark Spot Serum",
+  "brand": "Dr Awish",
+  "category": "pigmentation",
+  "categoryName": "Pigmentation",
+  "color": "#006f5f",
+  "ingredient": "Kojic Acid",
+  "price": 949,
+  "compareAt": 1189,
+  "discount": 20,
+  "rating": 4.2,
+  "reviews": 497,
+  "image": "/catalog/kojic-dark-spot-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 949,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 949,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Kojic Dark Spot Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "alpha-arbutin-serum",
+  "slug": "alpha-arbutin-serum",
+  "title": "Dr Awish Alpha Arbutin Serum",
+  "brand": "Dr Awish",
+  "category": "pigmentation",
+  "categoryName": "Pigmentation",
+  "color": "#006f5f",
+  "ingredient": "Kojic Acid",
+  "price": 699,
+  "compareAt": 779,
+  "discount": 10,
+  "rating": 4.3,
+  "reviews": 139,
+  "image": "/catalog/alpha-arbutin-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 699,
+    "available": true
+   }
+  ],
+  "skinTypes": "Oily",
+  "cod": true,
+  "shortDesc": "Alpha Arbutin Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "glow-tone-cream",
+  "slug": "glow-tone-cream",
+  "title": "Dr Awish Glow Tone Cream",
+  "brand": "Dr Awish",
+  "category": "pigmentation",
+  "categoryName": "Pigmentation",
+  "color": "#006f5f",
+  "ingredient": "Hyaluronic",
+  "price": 999,
+  "compareAt": 1329,
+  "discount": 25,
+  "rating": 4.1,
+  "reviews": 243,
+  "image": "/catalog/glow-tone-cream.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": false,
+  "shortDesc": "Glow Tone Cream — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "spf-lip-balm",
+  "slug": "spf-lip-balm",
+  "title": "Dr Awish SPF Lip Balm",
+  "brand": "Dr Awish",
+  "category": "lip",
+  "categoryName": "Lip Care",
+  "color": "#3f8ddf",
+  "ingredient": "SPF 50",
+  "price": 999,
+  "compareAt": 1999,
+  "discount": 50,
+  "rating": 4.7,
+  "reviews": 397,
+  "image": "/catalog/spf-lip-balm.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": true,
+  "shortDesc": "SPF Lip Balm — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "vitamin-e-lip-repair",
+  "slug": "vitamin-e-lip-repair",
+  "title": "Dr Awish Vitamin E Lip Repair",
+  "brand": "Dr Awish",
+  "category": "lip",
+  "categoryName": "Lip Care",
+  "color": "#3f8ddf",
+  "ingredient": "Hyaluronic",
+  "price": 749,
+  "compareAt": 1149,
+  "discount": 35,
+  "rating": 4.9,
+  "reviews": 453,
+  "image": "/catalog/vitamin-e-lip-repair.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 749,
+    "available": true
+   }
+  ],
+  "skinTypes": "Dry",
+  "cod": false,
+  "shortDesc": "Vitamin E Lip Repair — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "niacinamide-body-lotion",
+  "slug": "niacinamide-body-lotion",
+  "title": "Dr Awish Niacinamide Body Lotion",
+  "brand": "Dr Awish",
+  "category": "body",
+  "categoryName": "Body Care",
+  "color": "#936a6a",
+  "ingredient": "Niacinamide",
+  "price": 999,
+  "compareAt": 1819,
+  "discount": 45,
+  "rating": 4.3,
+  "reviews": 212,
+  "image": "/catalog/niacinamide-body-lotion.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 999,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": true,
+  "shortDesc": "Niacinamide Body Lotion — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "aha-body-wash",
+  "slug": "aha-body-wash",
+  "title": "Dr Awish AHA Body Wash",
+  "brand": "Dr Awish",
+  "category": "body",
+  "categoryName": "Body Care",
+  "color": "#936a6a",
+  "ingredient": "Salicylic",
+  "price": 399,
+  "compareAt": 799,
+  "discount": 50,
+  "rating": 4.5,
+  "reviews": 439,
+  "image": "/catalog/aha-body-wash.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 399,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 399,
+    "available": true
+   },
+   {
+    "title": "100 ml",
+    "price": 399,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": true,
+  "shortDesc": "AHA Body Wash — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "ceramide-body-butter",
+  "slug": "ceramide-body-butter",
+  "title": "Dr Awish Ceramide Body Butter",
+  "brand": "Dr Awish",
+  "category": "body",
+  "categoryName": "Body Care",
+  "color": "#936a6a",
+  "ingredient": "Ceramide",
+  "price": 549,
+  "compareAt": 1099,
+  "discount": 50,
+  "rating": 4.7,
+  "reviews": 400,
+  "image": "/catalog/ceramide-body-butter.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 549,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 549,
+    "available": true
+   }
+  ],
+  "skinTypes": "All",
+  "cod": false,
+  "shortDesc": "Ceramide Body Butter — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "caffeine-eye-serum",
+  "slug": "caffeine-eye-serum",
+  "title": "Dr Awish Caffeine Eye Serum",
+  "brand": "Dr Awish",
+  "category": "eye",
+  "categoryName": "Under Eye",
+  "color": "#4770db",
+  "ingredient": "Hyaluronic",
+  "price": 949,
+  "compareAt": 1899,
+  "discount": 50,
+  "rating": 4.4,
+  "reviews": 278,
+  "image": "/catalog/caffeine-eye-serum.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 949,
+    "available": true
+   }
+  ],
+  "skinTypes": "Sensitive",
+  "cod": false,
+  "shortDesc": "Caffeine Eye Serum — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ },
+ {
+  "id": "de-puff-eye-gel",
+  "slug": "de-puff-eye-gel",
+  "title": "Dr Awish De-Puff Eye Gel",
+  "brand": "Dr Awish",
+  "category": "eye",
+  "categoryName": "Under Eye",
+  "color": "#4770db",
+  "ingredient": "Hyaluronic",
+  "price": 799,
+  "compareAt": 1229,
+  "discount": 35,
+  "rating": 4.9,
+  "reviews": 57,
+  "image": "/catalog/de-puff-eye-gel.svg",
+  "variants": [
+   {
+    "title": "30 ml",
+    "price": 799,
+    "available": true
+   },
+   {
+    "title": "50 ml",
+    "price": 799,
+    "available": true
+   }
+  ],
+  "skinTypes": "Combination",
+  "cod": false,
+  "shortDesc": "De-Puff Eye Gel — dermatologist-formulated by Dr Awish for visible results. Clinically tested, cruelty-free.",
+  "real": false
+ }
+]

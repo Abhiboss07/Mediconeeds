@@ -1,0 +1,140 @@
+[
+ {
+  "handle": "sunscreen",
+  "name": "Sunscreen",
+  "color": "#cf5c2d",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Ultra Matte SPF 50",
+   "Aqua Gel SPF 50 PA++++",
+   "Tinted Mineral SPF 50",
+   "Hybrid SPF 50 Fluid",
+   "Kids Sunscreen SPF 50"
+  ]
+ },
+ {
+  "handle": "serum",
+  "name": "Serum",
+  "color": "#88068e",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "10% Vitamin C Serum",
+   "10% Niacinamide Serum",
+   "2% Hyaluronic Serum",
+   "Kojic Acid Serum",
+   "Retinol 0.3% Night Serum"
+  ]
+ },
+ {
+  "handle": "cleanser",
+  "name": "Cleanser",
+  "color": "#006f5f",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Gentle Foaming Cleanser",
+   "Salicylic Acne Face Wash",
+   "Vitamin C Brightening Wash",
+   "Hydrating Cream Cleanser"
+  ]
+ },
+ {
+  "handle": "moisturiser",
+  "name": "Moisturiser",
+  "color": "#3f8ddf",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Oil-Free Gel Moisturiser",
+   "Ceramide Repair Moisturiser",
+   "Hyaluronic Daily Moisturiser",
+   "Barrier Restore Cream"
+  ]
+ },
+ {
+  "handle": "cream",
+  "name": "Face Cream",
+  "color": "#936a6a",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Under-Eye Brightening Cream",
+   "Anti-Pigmentation Cream",
+   "Night Repair Cream",
+   "SPF Day Cream"
+  ]
+ },
+ {
+  "handle": "hair",
+  "name": "Hair Care",
+  "color": "#4770db",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Anti-Hairfall Serum",
+   "Redensyl Hair Tonic",
+   "Biotin Shampoo",
+   "Scalp Detox Cleanser"
+  ]
+ },
+ {
+  "handle": "acne",
+  "name": "Acne Care",
+  "color": "#cf5c2d",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Anti-Acne Gel",
+   "Spot Corrector",
+   "Salicylic Toner"
+  ]
+ },
+ {
+  "handle": "antiageing",
+  "name": "Anti-Ageing",
+  "color": "#88068e",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Retinol Night Cream",
+   "Peptide Firming Serum",
+   "Collagen Boost Cream"
+  ]
+ },
+ {
+  "handle": "pigmentation",
+  "name": "Pigmentation",
+  "color": "#006f5f",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Kojic Dark Spot Serum",
+   "Alpha Arbutin Serum",
+   "Glow Tone Cream"
+  ]
+ },
+ {
+  "handle": "lip",
+  "name": "Lip Care",
+  "color": "#3f8ddf",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "SPF Lip Balm",
+   "Vitamin E Lip Repair"
+  ]
+ },
+ {
+  "handle": "body",
+  "name": "Body Care",
+  "color": "#936a6a",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Niacinamide Body Lotion",
+   "AHA Body Wash",
+   "Ceramide Body Butter"
+  ]
+ },
+ {
+  "handle": "eye",
+  "name": "Under Eye",
+  "color": "#4770db",
+  "icon": "/assets/Cardiology_HC3G9vC.png",
+  "items": [
+   "Caffeine Eye Serum",
+   "De-Puff Eye Gel"
+  ]
+ }
+]
