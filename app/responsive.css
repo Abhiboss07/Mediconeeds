@@ -1,0 +1,10 @@
+/* Desktop tree is shown only at >=lg and the mobile tree only at <lg
+ * (see app/page.jsx), so each breakpoint renders its own faithful DOM.
+ * These few rules only tidy the desktop tree itself. */
+
+@media (max-width: 1023px) {
+  /* the desktop sidebar lives inside the hidden desktop tree; keep it hidden */
+  .mc-sidebar {
+    display: none !important;
+  }
+}

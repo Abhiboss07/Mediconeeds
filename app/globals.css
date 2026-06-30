@@ -1,0 +1,20 @@
+/* Mediconeeds — minimal globals layered on top of the reused compiled CSS.
+   The pixel-exact styling comes from ./styles/*.css (the original compiled
+   Tailwind + styled-components output). Keep this file intentionally tiny. */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Local Manrope fallback metric-adjust class used by the app wrapper. */
+.__className_5f1e15 {
+  font-family: __Manrope_5f1e15, __Manrope_Fallback_5f1e15, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}

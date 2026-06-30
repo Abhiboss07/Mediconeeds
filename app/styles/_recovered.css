@@ -1,0 +1,79 @@
+/* Recovered styled-component (sc-*) rules captured from the live render.
+   These were injected at runtime by styled-components and were absent from
+   the saved CSS. Imported last so they take precedence like the original. */
+
+.bGeMFl{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:700;line-height:20px;color:rgb(25, 29, 35);white-space:nowrap;text-align:center}
+.cNFldm{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:400;line-height:20px;color:rgb(77, 77, 77);text-align:center}
+.eHuliq{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:400;line-height:16px;color:rgb(24, 24, 24);text-align:center}
+.jVoChq{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:600;line-height:16px;color:rgb(48, 86, 211);text-align:center;display:block}
+.vJYZY{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:500;line-height:16px;color:rgb(255, 255, 255);white-space:nowrap;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;background-image:linear-gradient(89.93deg, rgb(48, 86, 211) 0%, rgb(25, 44, 109) 171.22%);border-radius:12px;padding-top:8px;padding-bottom:8px}
+.lcHSqS{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:500;line-height:16px;color:rgb(255, 255, 255);white-space:nowrap;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;background-image:linear-gradient(89.93deg, rgb(48, 86, 211) 0%, rgb(25, 44, 109) 171.22%);border-radius:12px;padding-top:8px;padding-bottom:8px}
+.jqUZgr{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:400;line-height:18px;color:rgb(25, 29, 35)}
+.fdgTPw{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:700;line-height:24px;color:rgb(48, 86, 211);text-align:center}
+.hjCJKy{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:500;line-height:18px;color:rgb(25, 29, 35);text-align:center}
+.gogfLP{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:500;line-height:18px;color:rgb(25, 29, 35);text-align:center}
+.lbuWQp{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:24px;font-weight:700;line-height:32px;color:rgb(25, 29, 35)}
+.bHsjZO{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:500;line-height:18px;color:rgb(77, 77, 77);text-align:center}
+.gXqPuN{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:400;line-height:24px;color:rgb(13, 15, 17);text-transform:capitalize;white-space:nowrap;opacity:0.7}
+.hjKObp{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:600;line-height:20px;letter-spacing:0.035px;color:rgb(24, 24, 24);text-transform:capitalize;white-space:nowrap;text-align:center}
+.bdsIHq{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:8px;font-weight:400;line-height:12px;letter-spacing:0.02px;color:rgb(77, 77, 77);text-transform:capitalize;text-align:center}
+.kzIVhT{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:24px;font-weight:700;line-height:32px;color:rgb(13, 15, 17)}
+.daEALO{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:400;line-height:24px;color:rgb(13, 15, 17);text-transform:capitalize;white-space:nowrap;opacity:0.7}
+.cmYHDd{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:600;line-height:16px;color:rgb(25, 29, 35)}
+.gFAntO{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:500;line-height:16px;color:rgb(25, 29, 35);opacity:0.9}
+.gmVAHq{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:700;line-height:24px;color:rgb(24, 24, 24);opacity:0.9}
+.dOKzvH{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:400;line-height:18px;color:rgb(77, 77, 77);text-decoration:line-through}
+.IXBqP{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:700;line-height:16px;color:rgb(0, 106, 98);opacity:0.9;display:block}
+.bqureI{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:24px;font-weight:700;line-height:32px;color:rgb(24, 24, 24)}
+.fiPxPJ{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:20px;font-weight:600;line-height:32px;color:rgb(24, 24, 24)}
+.beqfgZ{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:600;line-height:18px;color:rgb(235, 101, 27);display:block}
+.jrbMKw{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:30px;font-weight:700;line-height:32px;letter-spacing:0.075px;color:rgb(24, 24, 24)}
+.cZxbWC{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:13px;font-weight:400;line-height:18px;letter-spacing:0.028px;color:rgb(24, 24, 24);text-transform:capitalize}
+
+/* ---- Mobile-specific styled-component variants (recovered from live mobile render) ---- */
+.dlAlsq{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:18px;font-weight:700;line-height:26px;color:rgb(24, 24, 24)}
+.dskCRH{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:8px;font-weight:400;line-height:12px;color:rgb(24, 24, 24);white-space:nowrap;text-align:center}
+.fGBgaz{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:400;line-height:16px;color:rgb(77, 77, 77);white-space:nowrap}
+.gDDvhM{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:600;line-height:16px;letter-spacing:0.035px;color:rgb(24, 24, 24);text-transform:capitalize;white-space:nowrap;text-align:center}
+.gVMcGf{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:8px;font-weight:500;line-height:12px;color:rgb(77, 77, 77);text-align:center}
+.gXYWpk{font-family:Manrope, sans-serif;font-size:10px;font-weight:700;line-height:16px;color:rgb(31, 53, 128);opacity:0.9;text-align:center}
+.hUJZbz{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:18px;font-weight:700;line-height:26px;color:rgb(25, 29, 35)}
+.iMDjjr{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:400;line-height:16px;color:rgb(25, 29, 35);white-space:nowrap;text-align:center}
+.ivZPpl{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:400;line-height:18px;color:rgb(13, 15, 17);text-transform:capitalize;white-space:nowrap;opacity:0.7}
+.jbryrn{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:8px;font-weight:600;line-height:12px;color:rgb(48, 86, 211);white-space:nowrap;text-align:center}
+.jsvhqZ{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:18px;font-weight:700;line-height:26px;color:rgb(13, 15, 17)}
+.kJnVjb{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:600;line-height:24px;color:rgb(24, 24, 24)}
+
+/* ---- PDP styled-component variants (recovered from live PDP) ---- */
+.bHaJSE{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:500;line-height:20px;color:rgb(48, 86, 211);text-align:center;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;padding-top:14px;padding-bottom:14px;border-radius:999px;background-color:rgb(255, 255, 255)}
+.bTTegf{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:700;line-height:18px;color:rgb(25, 29, 35)}
+.bpWMrB{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:700;line-height:24px;color:rgb(13, 15, 17)}
+.cEgsLR{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:700;line-height:16px;letter-spacing:0.5px;color:rgb(25, 29, 35);text-transform:uppercase;text-align:center}
+.cNMFTD{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:600;line-height:20px;color:rgb(235, 98, 3);white-space:nowrap;text-align:center}
+.cRGfgY{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:700;line-height:18px;color:rgb(25, 29, 35)}
+.cdPxYe{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:600;line-height:18px;color:rgb(25, 29, 35);opacity:0.3}
+.clUYAY{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:400;line-height:20px;color:rgb(160, 171, 187);text-decoration:line-through}
+.cxFBnP{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:24px;font-weight:600;line-height:32px;color:rgb(25, 29, 35);white-space:nowrap}
+.daktIk{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:500;line-height:18px;color:rgb(255, 255, 255)}
+.edKAnK{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:500;line-height:18px;color:rgb(99, 128, 222)}
+.emYMBn{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:10px;font-weight:600;line-height:16px;color:rgb(13, 15, 17);white-space:nowrap;text-align:center}
+.ffNNPl{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:500;line-height:20px;color:rgb(255, 255, 255);text-align:center;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;padding-top:14px;padding-bottom:14px;border-radius:999px;background-color:rgb(48, 86, 211)}
+.hDDNMl{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:400;line-height:20px;color:rgb(100, 116, 139)}
+.hszwAe{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:500;line-height:20px;color:rgb(255, 255, 255);text-align:center;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;padding-top:14px;padding-bottom:14px;border-radius:999px;background-color:rgb(48, 86, 211)}
+.hthdmC{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:500;line-height:20px;color:rgb(48, 86, 211);text-align:center;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;padding-top:14px;padding-bottom:14px;border-radius:999px;background-color:rgb(255, 255, 255)}
+.hwCci{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:600;line-height:20px;color:rgb(235, 98, 3);white-space:nowrap;text-align:center}
+.iQBOlV{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:400;line-height:24px;color:rgb(68, 68, 68);display:flex;flex-direction:row;align-items:center;justify-content:space-between}
+.jmvvyD{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:16px;font-weight:400;line-height:24px;color:rgb(68, 68, 68);display:flex;flex-direction:row;gap:8px}
+.jqCgUa{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:14px;font-weight:700;line-height:20px;color:rgb(0, 106, 98);white-space:nowrap}
+.kCrKoy{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:24px;font-weight:700;line-height:30px;color:rgb(25, 28, 30)}
+.liJBOu{font-family:__Manrope_5f1e15, __Manrope_Fallback_5f1e15;font-size:12px;font-weight:600;line-height:18px;color:rgb(25, 29, 35);white-space:nowrap}
+
+/* ---- PDP flex layout (sc-1c6435ca-0 order-mapped from live) ---- */
+.cTXJjf{padding-top:8px;padding-right:8px;padding-bottom:8px;padding-left:8px}
+.eBembt{display:flex;align-items:center;padding-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px}
+.liJBOu{display:flex;align-items:center;gap:4px}
+.iQBOlV{display:flex;flex-direction:column;gap:8px}
+.cwuhwF{display:flex;align-items:center;justify-content:space-between}
+.cEgsLR{display:flex;align-items:center;gap:12px}
+.daQRIT{display:flex;align-items:center;justify-content:center}
+.bTTegf{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px}
