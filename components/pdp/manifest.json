@@ -1,0 +1,14 @@
+{
+  "desktop": {
+    "tag": "div",
+    "class": "mx-auto max-w-[84rem] ",
+    "id": "",
+    "style": ""
+  },
+  "mobile": {
+    "tag": "div",
+    "class": "min-h-screen bg-[#F7FAFF]",
+    "id": "",
+    "style": ""
+  }
+}
