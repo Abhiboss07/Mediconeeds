@@ -1,0 +1,4 @@
+/* Tailwind utilities for the hand-written Mediconeeds pages.
+   No @tailwind base (preflight is disabled) so the reused cloned CSS is untouched. */
+@tailwind components;
+@tailwind utilities;
