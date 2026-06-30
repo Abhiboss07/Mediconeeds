@@ -1,8 +1,0 @@
-Generate a single premium e-commerce category icon. Output: 512x512 PNG/WebP, transparent background.
-
-Subject: "Bestsellers" — an award medal / rosette ribbon with a star.
-Style: modern medical e-commerce, flat icon on a soft rounded-square tile.
-Tile: soft lilac / lavender background (#F1E8FB → #E9DBF7 subtle gradient), large rounded corners (~22% radius), gentle soft shadow under the tile.
-Glyph: one bold filled award rosette in magenta/purple (#9B2FB0) with two ribbon tails and a white five-point star centered in the medallion. Single glyph, centered, generous padding.
-Lighting/perspective: flat front-on, soft top light, subtle inner highlight.
-Must match a unified icon family with clearance / skin-quiz / consultation: SAME tile size, SAME corner radius, SAME light direction, SAME shadow, one tint, one glyph. No text, no extra elements, no photorealism.

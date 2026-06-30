@@ -1,8 +1,0 @@
-Generate a single premium e-commerce category icon. Output: 512x512 PNG/WebP, transparent background.
-
-Subject: "Skin Quiz" — a magnifying glass with a friendly smiley face in the lens.
-Style: modern medical e-commerce, flat icon on a soft rounded-square tile.
-Tile: soft sky-blue background (#E5F1FE → #D8E9FD subtle gradient), large rounded corners (~22% radius), gentle soft shadow under the tile.
-Glyph: one bold magnifying glass with thick rounded stroke in brand blue (#2C7BE5 / #3056D3), a simple smiley face (two dots + curved smile) inside the lens. Single glyph, centered, generous padding.
-Lighting/perspective: flat front-on, soft top light, subtle inner highlight.
-Must match a unified icon family with clearance / bestsellers / consultation: SAME tile size, SAME corner radius, SAME light direction, SAME shadow, one tint, one glyph. No text, no extra elements, no photorealism.

@@ -1,0 +1,4 @@
+Single circular Explore-section icon. 512x512 PNG/WebP, transparent outside the circle.
+Subject: "Ingredients" — an Erlenmeyer flask containing liquid with a leaf (science-backed botanicals).
+Circle: pale warm-beige tint (#F2ECDD). Glyph: thin charcoal line-art with a green leaf + liquid accent.
+Flat, minimal. Match a family with explore/concern/category: same circle size, stroke weight, tint approach. No text, no photorealism.

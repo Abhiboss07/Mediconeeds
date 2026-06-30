@@ -1,0 +1,4 @@
+Single circular Explore-section icon. 512x512 PNG/WebP, transparent outside the circle.
+Subject: "Explore" — four rounded squares (a category/grid glyph) with a small leaf.
+Circle: pale sage-green tint (#E3F1EA). Glyph: thin charcoal line-art, one small green leaf accent.
+Flat, minimal, friendly. Match a family with concern/category/ingredients: same circle size, same stroke weight, same soft tint approach. No text, no photorealism.

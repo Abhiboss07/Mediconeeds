@@ -14,14 +14,14 @@ changes are needed, the components already point at these paths.
 
 | Prompt file              | Output path                                  | Size        |
 |--------------------------|----------------------------------------------|-------------|
-| icon-clearance.txt       | public/assets/explore/clearance.webp         | 512×512     |
-| icon-bestsellers.txt     | public/assets/explore/bestsellers.webp       | 512×512     |
-| icon-skin-quiz.txt       | public/assets/explore/skin-quiz.webp         | 512×512     |
-| icon-consultation.txt    | public/assets/explore/consultation.webp      | 512×512     |
+| icon-explore.txt         | public/assets/explore/explore.webp           | 512×512     |
+| icon-concern.txt         | public/assets/explore/concern.webp           | 512×512     |
+| icon-category.txt        | public/assets/explore/category.webp          | 512×512     |
+| icon-ingredients.txt     | public/assets/explore/ingredients.webp       | 512×512     |
 | banner-1.txt             | public/assets/banners/banner-1.webp          | 1920×700    |
 | banner-2.txt             | public/assets/banners/banner-2.webp          | 1920×700    |
 
 Brand language (from Reference.png): soft medical colors, premium gradients,
-clean studio lighting, Dr Awish Clinical Skincare. Icon family = rounded-square
-tile, single soft tint per icon, one flat glyph, consistent perspective,
-lighting and corner radius across all four.
+clean studio lighting, Dr Awish Clinical Skincare. Icon family = circular soft
+tint per icon (sage / blush / sage / beige), one thin charcoal line-art glyph
+with a small green accent, consistent circle size and stroke weight across all four.

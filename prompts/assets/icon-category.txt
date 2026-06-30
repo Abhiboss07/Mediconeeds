@@ -1,0 +1,4 @@
+Single circular Explore-section icon. 512x512 PNG/WebP, transparent outside the circle.
+Subject: "Category" — a pump bottle next to a small cosmetic jar.
+Circle: pale sage-green tint (#E3F1EA). Glyph: thin charcoal line-art with subtle green fill accents.
+Flat, minimal. Match a family with explore/concern/ingredients: same circle size, stroke weight, tint approach. No text, no photorealism.
