@@ -1,4 +1,0 @@
-Single circular Explore-section icon. 512x512 PNG/WebP, transparent outside the circle.
-Subject: "Concern" — a woman's face (hair in a bun) beside a small magnifier examining the skin.
-Circle: pale blush-pink tint (#FCE9E4). Glyph: thin charcoal line-art.
-Flat, minimal. Match a family with explore/category/ingredients: same circle size, stroke weight, tint approach. No text, no photorealism.
