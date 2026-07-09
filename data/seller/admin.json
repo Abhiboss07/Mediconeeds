@@ -1,0 +1,21 @@
+{
+  "pendingSellers": [
+    { "id": "APP-7781", "company": "MediCore Surgicals Pvt Ltd", "owner": "Rahul Mehta", "gstin": "27AAECM1234K1Z9", "categories": ["Surgical", "Consumables"], "applied": "2026-07-01", "docs": 4, "status": "pending" },
+    { "id": "APP-7773", "company": "Nova Diagnostics", "owner": "Sneha Rao", "gstin": "29AAFCN5678L1Z3", "categories": ["Diagnostic", "Laboratory"], "applied": "2026-06-30", "docs": 3, "status": "pending" },
+    { "id": "APP-7768", "company": "DentPro Instruments", "owner": "Imran Sheikh", "gstin": "24AAGCD9012M1Z7", "categories": ["Dental", "Devices"], "applied": "2026-06-29", "docs": 4, "status": "pending" }
+  ],
+  "approvedSellers": [
+    { "id": "SLR-100482", "company": "Dr Awish Healthcare Pvt Ltd", "owner": "Dr Awish Khan", "products": 10, "gmv": 1547000, "rating": 4.7, "status": "approved" },
+    { "id": "SLR-100311", "company": "CareFirst Medical", "owner": "Anita Desai", "products": 42, "gmv": 3120000, "rating": 4.5, "status": "approved" },
+    { "id": "SLR-100208", "company": "PhysioPlus Devices", "owner": "Karan Malhotra", "products": 28, "gmv": 980000, "rating": 4.2, "status": "suspended" }
+  ],
+  "platform": {
+    "totalSellers": 214,
+    "pendingSellers": 3,
+    "pendingProducts": 37,
+    "gmv": 104200000,
+    "commissionDefault": 8,
+    "categories": 52,
+    "brands": 138
+  }
+}

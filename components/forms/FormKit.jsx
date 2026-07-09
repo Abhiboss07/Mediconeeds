@@ -1,6 +1,6 @@
 "use client";
 // Controlled form primitives (Mediconeeds styling) with name/required/error support.
-// Used by ExportEnquiryForm and SupplierForm.
+// Used by ExportEnquiryForm.
 
 const baseInput =
   "w-full h-[44px] px-4 rounded-[10px] border text-[14px] outline-none bg-white transition-colors";

@@ -9,7 +9,7 @@ const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim())
 async function persistEnquiry(record) {
   // TODO(backend): persist to DB / forward to sales CRM / send email.
   // e.g. await db.exportEnquiries.create(record) + notify(export@awishclinic.com)
-  console.log("[export-enquiry] received", record.ref, record.email);
+  void record;
 }
 
 export async function POST(req) {

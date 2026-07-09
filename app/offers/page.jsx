@@ -1,15 +1,16 @@
 import SiteChrome from "@/components/SiteChrome";
 import ProductListing from "@/components/ProductListing";
-import { getOffers, categories, fmtINR } from "@/lib/catalog";
+import { getOffers } from "@/lib/catalog/store";
 
 export const metadata = {
   title: "Offers & Deals",
   description: "Live Dr Awish skincare offers — clearance deals, flash discounts and bundle savings across serums, sunscreens, cleansers and combos.",
 };
 
-export default function Page() {
-  const products = getOffers();
-  const cats = categories.map((c) => ({ handle: c.handle, name: c.name }));
+export const dynamic = "force-dynamic"; // live catalogue from MongoDB
+
+export default async function Page() {
+  const products = await getOffers();
   const maxDisc = products.reduce((m, p) => Math.max(m, p.discount || 0), 0);
   const deals = [
     { t: "Clearance Sale", d: `Up to ${maxDisc}% off`, sub: "Limited stock, lowest prices", cls: "from-[#e0633a] to-[#c64a22]" },
@@ -34,7 +35,7 @@ export default function Page() {
         ))}
       </div>
 
-      <ProductListing products={products} categories={cats} defaultSort="discount" offersOnly />
+      <ProductListing products={products} defaultSort="discount" offersOnly />
     </div>
   );
   return <SiteChrome content={content} />;

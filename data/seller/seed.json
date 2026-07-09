@@ -1,0 +1,107 @@
+{
+  "seller": {
+    "id": "SLR-100482",
+    "company": "Dr Awish Healthcare Pvt Ltd",
+    "owner": "Dr Awish Khan",
+    "email": "seller@awishclinic.com",
+    "mobile": "+91 9310032619",
+    "website": "https://awishclinic.com",
+    "gst": "07ABWPK1234M1Z5",
+    "pan": "ABWPK1234M",
+    "cin": "U24239DL2019PTC351234",
+    "address": "B-42, Okhla Industrial Area Phase II, New Delhi, 110020",
+    "bank": { "name": "HDFC Bank", "account": "50100XXXXXX2291", "ifsc": "HDFC0000123" },
+    "categories": ["Dermatology", "Skincare", "Consumables"],
+    "status": "approved",
+    "since": "2024-08-01",
+    "rating": 4.7,
+    "fulfilmentRate": 98.2,
+    "avatar": "DA"
+  },
+  "platformStats": [
+    { "label": "Active Buyers", "value": "20,000+", "icon": "buyers" },
+    { "label": "Hospitals", "value": "5,000+", "icon": "hospital" },
+    { "label": "Clinics", "value": "1,500+", "icon": "clinic" },
+    { "label": "Categories", "value": "50+", "icon": "grid" },
+    { "label": "Orders Processed", "value": "₹10 Cr+", "icon": "rupee" },
+    { "label": "Delivery", "value": "PAN India", "icon": "truck" }
+  ],
+  "products": [
+    { "id": "P-1001", "name": "Dr Awish Glow Care Combo", "brand": "Dr Awish", "sku": "DAW-COMBO-01", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 1799, "price": 1199, "wholesale": 999, "moq": 5, "stock": 120, "status": "active", "views": 4820, "sales": 312, "rating": 4.2, "image": "/drawish/ChatGPT_Image_Apr_16_2025_12_45_26_PM.png" },
+    { "id": "P-1002", "name": "Dr Awish Daily Essentials Kit", "brand": "Dr Awish", "sku": "DAW-KIT-02", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 1499, "price": 999, "wholesale": 820, "moq": 5, "stock": 64, "status": "active", "views": 3110, "sales": 208, "rating": 4.8, "image": "/drawish/ChatGPT_Image_Apr_16_2025_01_19_37_PM.png" },
+    { "id": "P-1003", "name": "Dr Awish Ketowish Hair Rescue Combo", "brand": "Dr Awish", "sku": "DAW-HAIR-03", "category": "Dermatology", "hsn": "3305", "gst": 18, "mrp": 1299, "price": 899, "wholesale": 720, "moq": 6, "stock": 8, "status": "active", "views": 2740, "sales": 176, "rating": 4.7, "image": "/drawish/ChatGPT_Image_Apr_16_2025_01_27_17_PM.png" },
+    { "id": "P-1004", "name": "Dr Awish Retinol Face Serum 30ml", "brand": "Dr Awish", "sku": "DAW-SER-04", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 999, "price": 649, "wholesale": 520, "moq": 10, "stock": 0, "status": "active", "views": 5210, "sales": 401, "rating": 4.8, "image": "/catalog/retinol-0-3-night-serum.svg" },
+    { "id": "P-1005", "name": "Dr Awish Ultra Matte SPF 50", "brand": "Dr Awish", "sku": "DAW-SPF-05", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 909, "price": 499, "wholesale": 410, "moq": 10, "stock": 240, "status": "active", "views": 6140, "sales": 522, "rating": 4.1, "image": "/catalog/ultra-matte-spf-50.svg" },
+    { "id": "P-1006", "name": "Dr Awish Aqua Gel SPF 50 PA++++", "brand": "Dr Awish", "sku": "DAW-SPF-06", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 689, "price": 449, "wholesale": 370, "moq": 10, "stock": 18, "status": "pending", "views": 0, "sales": 0, "rating": 0, "image": "/catalog/aqua-gel-spf-50-pa.svg" },
+    { "id": "P-1007", "name": "Dr Awish Tinted Mineral SPF 50", "brand": "Dr Awish", "sku": "DAW-SPF-07", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 1179, "price": 999, "wholesale": 800, "moq": 8, "stock": 52, "status": "draft", "views": 0, "sales": 0, "rating": 0, "image": "/catalog/tinted-mineral-spf-50.svg" },
+    { "id": "P-1008", "name": "Dr Awish 10% Vitamin C Serum", "brand": "Dr Awish", "sku": "DAW-SER-08", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 1329, "price": 999, "wholesale": 810, "moq": 10, "stock": 95, "status": "active", "views": 3980, "sales": 268, "rating": 4.2, "image": "/catalog/10-vitamin-c-serum.svg" },
+    { "id": "P-1009", "name": "Dr Awish Kids Sunscreen SPF 50", "brand": "Dr Awish", "sku": "DAW-SPF-09", "category": "Consumables", "hsn": "3304", "gst": 18, "mrp": 469, "price": 399, "wholesale": 320, "moq": 12, "stock": 6, "status": "active", "views": 1560, "sales": 88, "rating": 4.5, "image": "/catalog/kids-sunscreen-spf-50.svg" },
+    { "id": "P-1010", "name": "Dr Awish Hybrid SPF 50 Fluid", "brand": "Dr Awish", "sku": "DAW-SPF-10", "category": "Skincare", "hsn": "3304", "gst": 18, "mrp": 829, "price": 499, "wholesale": 410, "moq": 10, "stock": 0, "status": "rejected", "views": 0, "sales": 0, "rating": 0, "image": "/catalog/hybrid-spf-50-fluid.svg" }
+  ],
+  "orders": [
+    { "id": "ORD-24817", "buyer": "Apollo Clinic, Pune", "items": [{ "name": "Dr Awish Ultra Matte SPF 50", "qty": 40 }], "amount": 19960, "status": "new", "payment": "paid", "date": "2026-07-01", "tracking": "" },
+    { "id": "ORD-24812", "buyer": "Fortis Hospital, Delhi", "items": [{ "name": "Dr Awish Glow Care Combo", "qty": 20 }, { "name": "Dr Awish Retinol Face Serum 30ml", "qty": 30 }], "amount": 43450, "status": "confirmed", "payment": "paid", "date": "2026-06-30", "tracking": "" },
+    { "id": "ORD-24798", "buyer": "SkinWorks Derma, Mumbai", "items": [{ "name": "Dr Awish 10% Vitamin C Serum", "qty": 24 }], "amount": 23976, "status": "packed", "payment": "cod", "date": "2026-06-29", "tracking": "" },
+    { "id": "ORD-24776", "buyer": "Max Healthcare, Gurugram", "items": [{ "name": "Dr Awish Daily Essentials Kit", "qty": 15 }], "amount": 14985, "status": "shipped", "payment": "paid", "date": "2026-06-27", "tracking": "BLDT7729114IN" },
+    { "id": "ORD-24751", "buyer": "GlowUp Clinic, Bengaluru", "items": [{ "name": "Dr Awish Ketowish Hair Rescue Combo", "qty": 12 }], "amount": 10788, "status": "delivered", "payment": "paid", "date": "2026-06-24", "tracking": "BLDT7710233IN" },
+    { "id": "ORD-24740", "buyer": "Kaya Skin Clinic, Chennai", "items": [{ "name": "Dr Awish Kids Sunscreen SPF 50", "qty": 36 }], "amount": 14364, "status": "delivered", "payment": "paid", "date": "2026-06-22", "tracking": "BLDT7701887IN" },
+    { "id": "ORD-24718", "buyer": "Medanta, Lucknow", "items": [{ "name": "Dr Awish Ultra Matte SPF 50", "qty": 60 }], "amount": 29940, "status": "cancelled", "payment": "pending", "date": "2026-06-20", "tracking": "" },
+    { "id": "ORD-24702", "buyer": "Derma Essence, Hyderabad", "items": [{ "name": "Dr Awish Glow Care Combo", "qty": 10 }], "amount": 11990, "status": "delivered", "payment": "cod", "date": "2026-06-18", "tracking": "BLDT7690455IN" }
+  ],
+  "settlements": {
+    "pending": 84420,
+    "paid": 612300,
+    "upcoming": 43450,
+    "commissionRate": 8,
+    "history": [
+      { "id": "STL-3391", "date": "2026-06-28", "gross": 78500, "commission": 6280, "net": 72220, "status": "paid" },
+      { "id": "STL-3364", "date": "2026-06-21", "gross": 54200, "commission": 4336, "net": 49864, "status": "paid" },
+      { "id": "STL-3340", "date": "2026-06-14", "gross": 91300, "commission": 7304, "net": 83996, "status": "paid" },
+      { "id": "STL-3402", "date": "2026-07-05", "gross": 91760, "commission": 7340, "net": 84420, "status": "processing" }
+    ]
+  },
+  "notifications": [
+    { "id": "N-1", "type": "order", "title": "New order ORD-24817", "body": "Apollo Clinic, Pune ordered 40 × Ultra Matte SPF 50.", "time": "2h ago", "read": false },
+    { "id": "N-2", "type": "stock", "title": "Low stock: Ketowish Hair Rescue Combo", "body": "Only 8 units left — restock soon.", "time": "5h ago", "read": false },
+    { "id": "N-3", "type": "stock", "title": "Out of stock: Retinol Face Serum 30ml", "body": "This listing is now hidden from buyers.", "time": "1d ago", "read": false },
+    { "id": "N-4", "type": "approval", "title": "Product approved", "body": "Dr Awish 10% Vitamin C Serum is now live.", "time": "2d ago", "read": true },
+    { "id": "N-5", "type": "rejected", "title": "Product rejected", "body": "Hybrid SPF 50 Fluid needs a clearer ingredient label.", "time": "3d ago", "read": true },
+    { "id": "N-6", "type": "message", "title": "Buyer message", "body": "Fortis Hospital asked about bulk pricing.", "time": "4d ago", "read": true },
+    { "id": "N-7", "type": "announcement", "title": "Festive campaign live", "body": "Enrol products into the July Derma Sale for extra visibility.", "time": "5d ago", "read": true }
+  ],
+  "tickets": [
+    { "id": "TKT-5521", "subject": "Settlement delayed for STL-3402", "status": "open", "priority": "high", "updated": "2026-07-01" },
+    { "id": "TKT-5509", "subject": "How to enrol in the Derma Sale?", "status": "answered", "priority": "normal", "updated": "2026-06-29" },
+    { "id": "TKT-5487", "subject": "Bulk label printing not working", "status": "closed", "priority": "normal", "updated": "2026-06-25" }
+  ],
+  "reviews": [
+    { "id": "R-1", "product": "Dr Awish Retinol Face Serum 30ml", "buyer": "SkinWorks Derma", "rating": 5, "text": "Excellent results, consistent quality across batches.", "date": "2026-06-30" },
+    { "id": "R-2", "product": "Dr Awish Ultra Matte SPF 50", "buyer": "Apollo Clinic", "rating": 4, "text": "Patients love the matte finish. Fast delivery.", "date": "2026-06-28" },
+    { "id": "R-3", "product": "Dr Awish Glow Care Combo", "buyer": "Derma Essence", "rating": 4, "text": "Good value combo, packaging could be sturdier.", "date": "2026-06-26" }
+  ],
+  "analytics": {
+    "visitors": 18420,
+    "conversion": 3.8,
+    "repeatRate": 41,
+    "revenueMonthly": [
+      { "m": "Jan", "val": 210000 }, { "m": "Feb", "val": 248000 }, { "m": "Mar", "val": 262000 },
+      { "m": "Apr", "val": 305000 }, { "m": "May", "val": 341000 }, { "m": "Jun", "val": 389000 }
+    ],
+    "ordersMonthly": [
+      { "m": "Jan", "val": 142 }, { "m": "Feb", "val": 168 }, { "m": "Mar", "val": 181 },
+      { "m": "Apr", "val": 205 }, { "m": "May", "val": 233 }, { "m": "Jun", "val": 271 }
+    ],
+    "topProducts": [
+      { "name": "Ultra Matte SPF 50", "sales": 522, "revenue": 260478 },
+      { "name": "Retinol Face Serum 30ml", "sales": 401, "revenue": 260249 },
+      { "name": "Glow Care Combo", "sales": 312, "revenue": 374088 },
+      { "name": "10% Vitamin C Serum", "sales": 268, "revenue": 267732 },
+      { "name": "Daily Essentials Kit", "sales": 208, "revenue": 207792 }
+    ],
+    "categoryPerf": [
+      { "name": "Skincare", "pct": 62 },
+      { "name": "Dermatology", "pct": 26 },
+      { "name": "Consumables", "pct": 12 }
+    ]
+  }
+}

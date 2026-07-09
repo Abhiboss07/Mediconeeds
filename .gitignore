@@ -10,3 +10,7 @@
 .DS_Store
 .env*
 !.env.example
+/test-results/
+
+# large one-off client presentation exports (PNG/PDF, ~97MB) — not source
+/presentation/

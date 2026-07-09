@@ -1,4 +1,5 @@
 import AccountShell from "@/components/AccountShell";
+import LogoutButton from "@/components/auth/LogoutButton";
 import { sampleOrders, getAllProducts, fmtINR } from "@/lib/models";
 
 export const metadata = { title: "Account Dashboard" };
@@ -29,7 +30,10 @@ export default function Page() {
           <div className="text-[18px] font-extrabold">Welcome back 👋</div>
           <div className="text-[13px] opacity-90">You have {orders.length} orders and 240 reward points.</div>
         </div>
-        <a href="/products" className="bg-white text-[#3056D3] text-[13px] font-bold rounded-full px-5 py-2.5">Shop New Arrivals</a>
+        <div className="flex items-center gap-2">
+          <a href="/products" className="bg-white text-[#3056D3] text-[13px] font-bold rounded-full px-5 py-2.5">Shop New Arrivals</a>
+          <LogoutButton />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">

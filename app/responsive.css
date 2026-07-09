@@ -8,3 +8,34 @@
     display: none !important;
   }
 }
+
+/* ============================================================
+   Responsive data tables → stacked cards on mobile (< lg).
+   Add class `mc-rtable` to a <table> and `data-label` to each <td>.
+   The header row hides and each cell becomes a label/value row inside
+   a card — no horizontal scroll, no clipped columns on phones.
+   ============================================================ */
+@media (max-width: 1023px) {
+  .mc-rtable { display: block; min-width: 0 !important; width: 100%; }
+  .mc-rtable thead { display: none; }
+  .mc-rtable tbody { display: block; }
+  .mc-rtable tr {
+    display: block; width: 100%;
+    border: 1px solid rgba(111,115,132,0.18); border-radius: 12px;
+    background: #fff; padding: 10px 12px; margin-bottom: 10px;
+  }
+  .mc-rtable td {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; width: 100%; padding: 5px 0 !important; border: none !important;
+    text-align: right;
+  }
+  .mc-rtable td::before {
+    content: attr(data-label); text-align: left; flex: none;
+    font-size: 12px; font-weight: 600; color: #6b7280; white-space: nowrap;
+  }
+  /* cells with no label (e.g. checkbox / primary) span full width, left-aligned */
+  .mc-rtable td[data-label=""], .mc-rtable td:not([data-label]) { justify-content: flex-start; text-align: left; }
+  .mc-rtable td[data-label=""]::before, .mc-rtable td:not([data-label])::before { content: none; }
+  /* the parent scroll wrapper shouldn't scroll when cells are stacked */
+  .mc-rtable-wrap { overflow: visible !important; }
+}
