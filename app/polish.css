@@ -162,3 +162,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .pdp-grid > .pdp-center { flex: 1 1 0%; min-width: 0; }
   .pdp-grid > .pdp-right { width: 320px; flex: 0 0 320px; }
 }
+
+/* ── PDP carousels / helpers ── */
+.mn-noscroll::-webkit-scrollbar { display: none; }
+.mn-noscroll { -ms-overflow-style: none; scrollbar-width: none; }

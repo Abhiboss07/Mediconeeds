@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
   const product = await getStorefrontProductByHandle(slug);
   if (!product) return { title: "Product Not Found" };
   return {
-    title: `${product.title} — Medikabazaar`,
+    title: `${product.title} — Mediconeeds`,
     description: product.shortDesc || product.title,
   };
 }
@@ -22,11 +22,12 @@ export default async function Page({ params }) {
     notFound();
   }
 
-  // Fetch related products from the same category handle
+  // Related (same category) + more-from-brand (same vendor) — all from MongoDB.
   const allProducts = await getStorefrontProducts();
-  const related = allProducts
-    .filter((p) => p.category === product.category && p.slug !== product.slug)
-    .slice(0, 4);
+  const others = allProducts.filter((p) => p.slug !== product.slug);
+  const sameCat = others.filter((p) => p.category === product.category);
+  const similar = (sameCat.length ? sameCat : others).slice(0, 10);
+  const brandProducts = others.filter((p) => p.brand && p.brand === product.brand).slice(0, 12);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -52,7 +53,7 @@ export default async function Page({ params }) {
       content={
         <>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-          <ProductView product={product} related={related} />
+          <ProductView product={product} similar={similar} brandProducts={brandProducts} />
         </>
       }
     />
