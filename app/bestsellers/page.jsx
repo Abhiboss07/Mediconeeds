@@ -1,15 +1,16 @@
 import SiteChrome from "@/components/SiteChrome";
 import ProductListing from "@/components/ProductListing";
-import { getBestsellers, categories } from "@/lib/catalog";
+import { getBestsellers } from "@/lib/catalog/store";
 
 export const metadata = {
   title: "Best Sellers",
   description: "Shop the most-loved Dr Awish skincare — our best-selling serums, sunscreens, cleansers and combos, ranked by what customers buy most.",
 };
 
-export default function Page() {
-  const products = getBestsellers();
-  const cats = categories.map((c) => ({ handle: c.handle, name: c.name }));
+export const dynamic = "force-dynamic"; // live catalogue from MongoDB
+
+export default async function Page() {
+  const products = await getBestsellers();
   const top = products[0];
   const content = (
     <div className="max-w-[84rem] mx-auto px-4 lg:px-8 py-7 lg:py-10">
@@ -32,7 +33,7 @@ export default function Page() {
           </a>
         )}
       </div>
-      <ProductListing products={products} categories={cats} defaultSort="popularity" />
+      <ProductListing products={products} defaultSort="bestselling" />
     </div>
   );
   return <SiteChrome content={content} />;

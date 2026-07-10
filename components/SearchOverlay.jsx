@@ -1,13 +1,23 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
-import { products } from "@/lib/catalog";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const TRENDING = ["Vitamin C Serum", "SPF 50 Sunscreen", "Glow Care Combo", "Niacinamide", "Retinol Serum", "Anti-Dandruff Shampoo"];
 
 export default function SearchOverlay() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
+
+  // Submit a search → hand off to the full listing (/products) so results flow
+  // through the same sort / filter / pagination engine.
+  const submit = (term) => {
+    const t = (term ?? q).trim();
+    if (!t) return;
+    setOpen(false);
+    router.push("/products?q=" + encodeURIComponent(t));
+  };
 
   useEffect(() => {
     const onOpen = () => setOpen(true);
@@ -17,11 +27,20 @@ export default function SearchOverlay() {
     return () => { window.removeEventListener("mn:open-search", onOpen); window.removeEventListener("keydown", onKey); };
   }, []);
 
-  const results = useMemo(() => {
-    const t = q.trim().toLowerCase();
-    const list = t ? products.filter((p) => p.title.toLowerCase().includes(t) || p.category.includes(t) || p.ingredient.toLowerCase().includes(t)) : products;
-    return list.slice(0, 6);
-  }, [q]);
+  // Live results from MongoDB via the catalogue search API (debounced).
+  const [results, setResults] = useState([]);
+  useEffect(() => {
+    if (!open) return;
+    const ctrl = new AbortController();
+    const t = setTimeout(async () => {
+      try {
+        const r = await fetch("/api/catalog/search?q=" + encodeURIComponent(q.trim()), { signal: ctrl.signal });
+        const data = await r.json();
+        setResults(data.items || []);
+      } catch { /* aborted / offline */ }
+    }, 180);
+    return () => { clearTimeout(t); ctrl.abort(); };
+  }, [q, open]);
 
   if (!open) return null;
 
@@ -37,11 +56,18 @@ export default function SearchOverlay() {
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter") submit(); }}
             placeholder="Search serums, sunscreen, ingredients…"
             className="flex-1 outline-none text-[15px] bg-transparent"
           />
           <button onClick={() => setOpen(false)} className="text-[#6b7280] text-[20px] leading-none px-1">×</button>
         </div>
+
+        {q.trim() && (
+          <button onClick={() => submit()} className="mt-3 w-full h-[42px] rounded-full bg-[#3056D3] text-white text-[14px] font-bold">
+            View all results for “{q.trim()}”
+          </button>
+        )}
 
         {!q && (
           <div className="mt-4">

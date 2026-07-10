@@ -1,0 +1,51 @@
+# Render Blueprint — deploys the FULL Next.js app (pages + API routes +
+# middleware + Auth.js) as one Node web service. Next.js is not splittable into
+# a separate static frontend + API backend, so this single service IS the app.
+# Set the secret values (sync:false) in the Render dashboard, not in git.
+services:
+  - type: web
+    name: mediconeeds-web
+    runtime: node
+    plan: starter          # bump to standard for production traffic
+    region: singapore      # closest to India users; match your Atlas region
+    branch: main
+    buildCommand: npm ci && npm run build
+    startCommand: npm start # `next start` binds to Render's $PORT automatically
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "false"      # enforce real auth/RBAC in production
+      # ---- secrets: set in the Render dashboard (do NOT commit) ----
+      - key: MONGODB_URI
+        sync: false
+      - key: AUTH_SECRET
+        sync: false
+      - key: AUTH_URL
+        sync: false         # e.g. https://mediconeeds.com
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
