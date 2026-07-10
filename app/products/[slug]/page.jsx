@@ -28,9 +28,33 @@ export default async function Page({ params }) {
     .filter((p) => p.category === product.category && p.slug !== product.slug)
     .slice(0, 4);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    image: product.images?.length ? product.images : [product.image].filter(Boolean),
+    description: product.shortDesc || product.title,
+    sku: product.variants?.[0]?.sku || product.slug,
+    brand: { "@type": "Brand", name: product.brand || "Dr Awish" },
+    ...(product.reviews
+      ? { aggregateRating: { "@type": "AggregateRating", ratingValue: product.rating || 4.5, reviewCount: product.reviews } }
+      : {}),
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      price: product.price,
+      availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+    },
+  };
+
   return (
     <SiteChrome
-      content={<ProductView product={product} related={related} />}
+      content={
+        <>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+          <ProductView product={product} related={related} />
+        </>
+      }
     />
   );
 }
