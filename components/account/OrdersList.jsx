@@ -40,7 +40,7 @@ export default function OrdersList() {
           </div>
           <div className="text-right">
             <div className="text-[16px] font-bold text-[#0e1b4d]">{fmtINR(o.total)}</div>
-            <a href="#" className="text-[12px] font-semibold text-[#3056D3]">Track / Invoice</a>
+            <a href={`/account/orders/${o.id}`} className="text-[12px] font-semibold text-[#3056D3]">Track / Invoice</a>
           </div>
         </div>
       ))}
