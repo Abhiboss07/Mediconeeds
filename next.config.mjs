@@ -18,7 +18,6 @@ const nextConfig = {
   reactStrictMode: false,
   poweredByHeader: false, // don't advertise Next.js
   compress: true, // gzip responses (the reverse proxy can also handle this)
-  output: "standalone", // self-contained server bundle for PM2 / Docker deploys
   images: { unoptimized: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
