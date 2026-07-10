@@ -69,7 +69,7 @@ export async function POST(req) {
       const amount = subtotal + gst;
 
       const order = new Order({
-        orderNo: orderNo(), seller: seller?._id, buyer: buyer._id, buyerName: address.name,
+        orderNo: orderNo(), seller: seller?._id, buyer: buyer._id, buyerName: address.name, address,
         items: items.map((i) => ({ name: i.name, slug: i.slug, sku: i.sku || "", qty: i.qty, price: i.price })),
         amount, status: "new", payment: "pending", paymentMethod: payment,
         placedAt: new Date(), statusHistory: [{ status: "new", at: new Date() }],

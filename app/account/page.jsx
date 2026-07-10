@@ -18,7 +18,7 @@ export default function Page() {
     { l: "Continue Shopping", h: "/products" },
     { l: "Reorder Previous Purchase", h: "/account/orders" },
     { l: "Book a Consultation", h: "/consultation" },
-    { l: "Refer & Earn", h: "/consultation" },
+    { l: "Refer & Earn", h: "/refer" },
     { l: "Edit Profile", h: "/account/settings" },
     { l: "Help Center", h: "/faq" },
     { l: "Contact Us", h: "/contact" },
