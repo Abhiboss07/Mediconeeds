@@ -9,6 +9,7 @@ const NAV = [
   { label: "Categories", href: "/admin/categories", icon: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
   { label: "Brands", href: "/admin/brands", icon: "M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L3.2 7.7l5.4-.8L12 2z" },
   { label: "Banners", href: "/admin/banners", icon: "M3 5h18v14H3zM3 9h18M8 5v4" },
+  { label: "Commission", href: "/admin/commission", icon: "M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" },
 ];
 
 function Icon({ d }) { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>; }
@@ -24,10 +25,6 @@ export default function AdminShell({ active, title, subtitle, actions, children 
       <nav className="flex flex-col gap-0.5 px-3 py-4 flex-1">
         {NAV.map((n) => (
           <a key={n.href} href={n.href} onClick={() => setOpen(false)} className={`flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold ${active === n.href ? "bg-[#3056D3] text-white" : "text-[#cfd6ea] hover:bg-white/10"}`}><Icon d={n.icon} />{n.label}</a>
-        ))}
-        <div className="mt-2 pt-2 border-t border-white/10 text-[11px] uppercase tracking-wide text-white/40 px-3 py-2">Manage</div>
-        {["Commission"].map((x) => (
-          <span key={x} className="flex items-center justify-between px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold text-[#8b93ad]">{x}<span className="text-[10px] bg-white/10 rounded px-1.5 py-0.5">Soon</span></span>
         ))}
       </nav>
       <div className="px-3 pb-4 border-t border-white/10">
