@@ -69,8 +69,10 @@ const providers = [
       await dbConnect();
       let user = await User.findOne(userQuery(identifier, channel));
 
-      // Passwordless signup: create a buyer once the code is verified.
-      if (!user && mode === "signup") {
+      // Unified passwordless: once the code is verified, create a buyer account if
+      // one doesn't exist yet — whether the user came through "signup" or "login".
+      // (The OTP has already been validated above, so this is safe.)
+      if (!user) {
         const email = channel === "email" ? String(identifier).toLowerCase().trim() : String(raw.email || "").toLowerCase().trim();
         if (!email) return null; // email is our unique key; required to create an account
         user = new User({
