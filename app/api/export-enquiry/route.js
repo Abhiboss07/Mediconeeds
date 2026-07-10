@@ -2,14 +2,15 @@
 // Validates server-side and returns a reference id. Persistence/notification is
 // stubbed — wire `persistEnquiry` to a DB/CRM/email service when available.
 import { NextResponse } from "next/server";
+import { dbConnect } from "@/lib/db/mongoose";
+import { ExportEnquiry } from "@/lib/db/models/ExportEnquiry";
 
 const required = ["name", "email", "country", "message"];
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
 
 async function persistEnquiry(record) {
-  // TODO(backend): persist to DB / forward to sales CRM / send email.
-  // e.g. await db.exportEnquiries.create(record) + notify(export@awishclinic.com)
-  void record;
+  await dbConnect();
+  await ExportEnquiry.create(record);
 }
 
 export async function POST(req) {
