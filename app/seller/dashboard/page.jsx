@@ -13,6 +13,9 @@ const QUICK = [
   { label: "Support", href: "/seller/support", d: "M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" },
 ];
 const EMPTY = { totalProducts: 0, activeListings: 0, pendingApproval: 0, orders: 0, openOrders: 0, delivered: 0, revenue: 0, unitsSold: 0, aov: 0, lowStock: 0, outStock: 0 };
+// Safe fallback so the dashboard never dereferences null (e.g. stats 403/500,
+// no seller profile, empty database). Renders an all-zero empty dashboard.
+const SAFE = { ok: false, sellerName: "Seller", stats: EMPTY, statusBreakdown: {}, revenueMonthly: [], needsAttention: [], recentOrders: [] };
 
 export default function Page() {
   const [data, setData] = useState(null);
@@ -20,17 +23,27 @@ export default function Page() {
 
   useEffect(() => {
     let on = true;
-    fetch("/api/seller/stats", { cache: "no-store" }).then((r) => r.json())
-      .then((r) => { if (on && r.ok) setData(r); })
-      .finally(() => on && setLoading(false));
+    fetch("/api/seller/stats", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((r) => { if (on) setData(r && r.ok ? r : SAFE); })
+      .catch(() => { if (on) setData(SAFE); })
+      .finally(() => { if (on) setLoading(false); });
     return () => { on = false; };
   }, []);
 
-  const st = data?.stats || EMPTY;
-  const name = (data?.sellerName || "Seller").split(" ")[0];
+  const d = data || SAFE;
+  const st = d.stats || EMPTY;
+  const name = (d.sellerName || "Seller").split(" ")[0];
+  const noSeller = data && data.ok === false;
+  const hasRevenue = (d.revenueMonthly || []).some((m) => m.val > 0);
 
   return (
     <SellerShell active="/seller/dashboard" title={`Welcome back, ${name}`} subtitle="Here's how your store is performing.">
+      {noSeller && !loading && (
+        <div className="rounded-[12px] border border-[rgba(224,99,58,0.3)] bg-[#fdf3ef] text-[#a24a2b] text-[13px] font-medium px-4 py-2.5 mb-4">
+          This account has no seller profile, so no store data is available. <a href="/seller/register" className="font-bold underline">Register as a seller →</a>
+        </div>
+      )}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
         <StatCard label="Total Products" value={st.totalProducts} sub={`${st.activeListings} active`} tone="blue" icon="◱" />
         <StatCard label="Pending Approval" value={st.pendingApproval} sub="awaiting review" tone="amber" icon="◷" />
@@ -52,12 +65,12 @@ export default function Page() {
 
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-4 mt-5">
         <SectionCard title="Revenue trend (6 mo)" action={<a href="/seller/analytics" className="text-[12px] font-semibold text-[#3056D3]">View analytics →</a>}>
-          {loading ? <p className="text-[13px] text-[#6b7280]">Loading…</p> : <LineChart data={data.revenueMonthly} height={200} />}
+          {loading ? <p className="text-[13px] text-[#6b7280]">Loading…</p> : hasRevenue ? <LineChart data={d.revenueMonthly} height={200} /> : <div className="h-[200px] flex items-center justify-center text-[13px] text-[#6b7280]">No revenue in the last 6 months yet.</div>}
         </SectionCard>
         <SectionCard title="Needs attention" action={<a href="/seller/inventory" className="text-[12px] font-semibold text-[#3056D3]">Inventory →</a>}>
-          {loading ? <p className="text-[13px] text-[#6b7280]">Loading…</p> : (data.needsAttention.length === 0 ? <p className="text-[13px] text-[#6b7280]">All products well stocked. 🎉</p> : (
+          {loading ? <p className="text-[13px] text-[#6b7280]">Loading…</p> : (d.needsAttention.length === 0 ? <p className="text-[13px] text-[#6b7280]">All products well stocked. 🎉</p> : (
             <div className="space-y-2.5">
-              {data.needsAttention.map((p) => (
+              {d.needsAttention.map((p) => (
                 <div key={p.id} className="flex items-center gap-3">
                   {p.image ? <img src={p.image} alt="" className="w-9 h-9 rounded-[8px] object-contain border border-[#eef0f5] bg-white" /> : <span className="w-9 h-9 rounded-[8px] bg-[#eef2ff]" />}
                   <div className="min-w-0 flex-1"><div className="text-[13px] font-semibold text-[#0e1b4d] truncate">{p.name}</div><div className="text-[12px] text-[#6b7280]">SKU {p.sku}</div></div>
@@ -71,12 +84,12 @@ export default function Page() {
 
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-4 mt-4">
         <SectionCard title="Recent orders" action={<a href="/seller/orders" className="text-[12px] font-semibold text-[#3056D3]">All orders →</a>}>
-          {loading ? <p className="text-[13px] text-[#6b7280]">Loading…</p> : data.recentOrders.length === 0 ? <p className="text-[13px] text-[#6b7280]">No orders yet.</p> : (
+          {loading ? <p className="text-[13px] text-[#6b7280]">Loading…</p> : d.recentOrders.length === 0 ? <p className="text-[13px] text-[#6b7280]">No orders yet.</p> : (
             <div className="overflow-x-auto">
               <table className="w-full text-[13px]">
                 <thead><tr className="text-[#6b7280] text-left border-b border-[#eef0f5]"><th className="pb-2 font-semibold">Order</th><th className="pb-2 font-semibold">Buyer</th><th className="pb-2 font-semibold">Amount</th><th className="pb-2 font-semibold">Status</th></tr></thead>
                 <tbody>
-                  {data.recentOrders.map((o) => (
+                  {d.recentOrders.map((o) => (
                     <tr key={o.id} className="border-b border-[#f5f6fa] last:border-0">
                       <td className="py-2.5 font-semibold text-[#0e1b4d]">{o.orderNo}</td>
                       <td className="py-2.5 text-[#374151] max-w-[160px] truncate">{o.buyer}</td>
@@ -95,7 +108,7 @@ export default function Page() {
               {Object.entries(ORDER_STATUS).map(([k, meta]) => (
                 <div key={k} className="flex items-center justify-between text-[13px]">
                   <Badge tone={meta.tone}>{meta.label}</Badge>
-                  <span className="font-bold text-[#0e1b4d]">{data.statusBreakdown[k] || 0}</span>
+                  <span className="font-bold text-[#0e1b4d]">{d.statusBreakdown[k] || 0}</span>
                 </div>
               ))}
             </div>
