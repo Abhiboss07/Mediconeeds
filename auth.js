@@ -20,6 +20,11 @@ import { config, isGoogleEnabled } from "./lib/config";
 
 const LoginSchema = z.object({ email: z.string().email(), password: z.string().min(1) });
 
+// A user can sign in unless they are explicitly suspended or deleted. We do NOT
+// require status === "active": legacy/imported records may have an unset status,
+// and locking them out produces a confusing CredentialsSignin on a correct code.
+const isSignInBlocked = (user) => user.status === "suspended" || user.status === "deleted";
+
 /** Resolve a seller's approval status (null for non-sellers). */
 async function sellerStatusFor(user) {
   if (user.role !== "seller") return null;
@@ -43,7 +48,7 @@ const providers = [
       if (!parsed.success) return null;
       await dbConnect();
       const user = await User.findForAuth(parsed.data.email);
-      if (!user || user.status !== "active") return null;
+      if (!user || isSignInBlocked(user)) return null;
       if (!(await user.verifyPassword(parsed.data.password))) return null;
       User.updateOne({ _id: user._id }, { lastLoginAt: new Date() }).catch(() => {});
       return { id: String(user._id), name: user.name, email: user.email, role: user.role, sellerStatus: await sellerStatusFor(user) };
@@ -79,7 +84,7 @@ const providers = [
         await user.save();
       }
 
-      if (!user || user.status !== "active") return null;
+      if (!user || isSignInBlocked(user)) return null;
       User.updateOne({ _id: user._id }, { lastLoginAt: new Date() }).catch(() => {});
       return { id: String(user._id), name: user.name, email: user.email, role: user.role, sellerStatus: await sellerStatusFor(user) };
     },
