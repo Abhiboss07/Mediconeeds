@@ -6,6 +6,10 @@ import { dbConnect } from "@/lib/db/mongoose";
 import { Product } from "@/lib/db/models/Product";
 import { Seller } from "@/lib/db/models/Seller";
 
+// Moderation queue must always reflect the live DB — never cache.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function GET(req) {
   const g = await apiGuard("admin");
   if (!g.ok) return NextResponse.json({ ok: false }, { status: g.status });

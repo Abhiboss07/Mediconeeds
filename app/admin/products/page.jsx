@@ -12,7 +12,7 @@ export default function Page() {
   async function load() {
     setLoading(true);
     try {
-      const r = await (await fetch("/api/admin/products?status=all")).json();
+      const r = await (await fetch("/api/admin/products?status=all", { cache: "no-store" })).json();
       if (r.ok) setAll(r.products);
     } finally { setLoading(false); }
   }

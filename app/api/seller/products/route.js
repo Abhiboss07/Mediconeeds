@@ -8,6 +8,9 @@ import { Product } from "@/lib/db/models/Product";
 import { currentSeller } from "@/lib/seller/current";
 import { runTransaction } from "@/lib/db/transaction";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const CreateSchema = z.object({
   name: z.string().trim().min(2, "Name is required").max(160),
   brand: z.string().trim().max(80).optional().or(z.literal("")),
