@@ -8,6 +8,7 @@
 import { NextResponse } from "next/server";
 import { apiGuard } from "@/lib/auth/session";
 import { verifyTransport, sendEmail } from "@/lib/services/email";
+import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -41,16 +42,29 @@ async function diagnose(to) {
     return result;
   }
 
-  // Step 5/6: force a real send and capture the raw provider response.
+  // Surface the effective From + a Gmail sender-rewrite warning. Gmail SMTP
+  // overrides From to the authenticated account unless the address is a verified
+  // "Send mail as" alias — a mismatch is a common "accepted but looks off" cause.
+  const fromHeader = config.smtp.from;
+  const isGmail = /smtp\.gmail\.com/i.test(process.env.SMTP_HOST || "");
+  const fromMatchesUser = fromHeader.toLowerCase().includes(String(process.env.SMTP_USER || "").toLowerCase());
+  result.sender = { from: fromHeader, smtpUser: `${String(process.env.SMTP_USER||"").split("@")[0].slice(0,2)}***@${String(process.env.SMTP_USER||"").split("@")[1]||""}`, fromMatchesAuthUser: fromMatchesUser };
+  if (isGmail && !fromMatchesUser) {
+    result.warnings = [
+      "Gmail SMTP will REWRITE the From header to your authenticated Gmail address because the configured From is not a verified 'Send mail as' alias. This still delivers, but set SMTP_FROM to your Gmail address (or verify the alias in Gmail settings) to avoid spoof-looking mail landing in spam.",
+    ];
+  }
+
+  // Step 5/6/8: force a MINIMAL plain send and capture the raw provider response.
   const send = await sendEmail({
     to: to || process.env.ADMIN_EMAIL || process.env.SMTP_USER,
-    subject: "Mediconeeds SMTP diagnostic ✔",
-    text: "This is an automated SMTP pipeline test. If you received it, outgoing email works.",
-    html: "<p>This is an automated <b>SMTP pipeline test</b>. If you received it, outgoing email works.</p>",
+    subject: "SMTP Test",
+    text: "Hello World — Mediconeeds SMTP pipeline test. If you received this, outgoing email works.",
+    html: "<p>Hello World — <b>Mediconeeds SMTP pipeline test</b>. If you received this, outgoing email works.</p>",
   });
-  result.send = send;
+  result.send = send; // includes raw { accepted, rejected, response, envelope, messageId }
   result.diagnosis = send.ok
-    ? `Email accepted by the provider (id=${send.id}). It should appear in your SMTP dashboard and inbox.`
+    ? `Provider accepted for delivery (accepted=${send.raw?.accepted?.length}, response="${send.raw?.response}"). If it still doesn't arrive, check Spam/Promotions and the provider's Sent/Activity log — the handoff succeeded.`
     : `Send failed: ${send.error}`;
   return result;
 }
