@@ -8,6 +8,7 @@ const NAV = [
   { label: "Orders", href: "/admin/orders", icon: "M6 2l1.5 3h9L18 2M3 6h18l-1.5 13.5A2 2 0 0116.5 21h-9A2 2 0 016 19.5L3 6z" },
   { label: "Categories", href: "/admin/categories", icon: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
   { label: "Brands", href: "/admin/brands", icon: "M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L3.2 7.7l5.4-.8L12 2z" },
+  { label: "Banners", href: "/admin/banners", icon: "M3 5h18v14H3zM3 9h18M8 5v4" },
 ];
 
 function Icon({ d }) { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>; }
@@ -25,7 +26,7 @@ export default function AdminShell({ active, title, subtitle, actions, children 
           <a key={n.href} href={n.href} onClick={() => setOpen(false)} className={`flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold ${active === n.href ? "bg-[#3056D3] text-white" : "text-[#cfd6ea] hover:bg-white/10"}`}><Icon d={n.icon} />{n.label}</a>
         ))}
         <div className="mt-2 pt-2 border-t border-white/10 text-[11px] uppercase tracking-wide text-white/40 px-3 py-2">Manage</div>
-        {["Banners", "Commission"].map((x) => (
+        {["Commission"].map((x) => (
           <span key={x} className="flex items-center justify-between px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold text-[#8b93ad]">{x}<span className="text-[10px] bg-white/10 rounded px-1.5 py-0.5">Soon</span></span>
         ))}
       </nav>
