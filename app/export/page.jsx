@@ -33,7 +33,7 @@ export default function Page() {
           <p className="text-[15px] lg:text-[17px] opacity-90 mt-4 max-w-[60ch]">Partner with us for wholesale, distribution and private-label supply of dermatologist-formulated skincare. Tell us your market — we'll handle the rest.</p>
           <div className="flex flex-wrap gap-3 mt-6">
             <a href="#enquiry" className="inline-flex h-[48px] items-center px-7 rounded-full bg-white text-[#3056D3] text-[15px] font-bold">Start an export enquiry →</a>
-            <a href="#supply" className="inline-flex h-[48px] items-center px-7 rounded-full border border-white/60 text-white text-[15px] font-bold">How it works</a>
+            <a href="/export/how-it-works" className="inline-flex h-[48px] items-center px-7 rounded-full border border-white/60 text-white text-[15px] font-bold">How it works</a>
           </div>
         </div>
       </section>

@@ -148,3 +148,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .mc-offerbar__text{ font-size:11.5px; }
   .mc-offerbar__box{ min-width:24px; font-size:12px; padding:4px 6px; }
 }
+
+/* ── Scroll-reveal (components/Reveal.jsx) ─────────────────────────────── */
+.mn-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
+.mn-reveal-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .mn-reveal, .mn-reveal-in { opacity: 1; transform: none; transition: none; } }
