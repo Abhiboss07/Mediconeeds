@@ -18,7 +18,11 @@ export default function LoginForm({ googleEnabled = false, callbackUrl = "" }) {
 
   async function done() {
     const s = await fetchSession();
-    window.location.href = callbackUrl || landingFor(s?.user?.role, s?.user?.sellerStatus);
+    const role = s?.user?.role;
+    // Buyers land on the home page after login (natural ecommerce flow); staff
+    // go to their dashboards. A callbackUrl (came from a protected page) wins.
+    const target = callbackUrl || (!role || role === "buyer" ? "/" : landingFor(role, s?.user?.sellerStatus));
+    window.location.href = target;
   }
 
   async function sendOtp() {
@@ -87,7 +91,7 @@ export default function LoginForm({ googleEnabled = false, callbackUrl = "" }) {
       <AInput label="Mobile or Email ID" value={identifier} onChange={setIdentifier} placeholder="eg. 9847372621 or you@example.com" autoComplete="username" />
       <AButton onClick={sendOtp} loading={loading}>Continue</AButton>
       <Divider />
-      {googleEnabled && <GoogleButton onClick={() => signIn("google", { callbackUrl: callbackUrl || "/account" })} />}
+      {googleEnabled && <GoogleButton onClick={() => signIn("google", { callbackUrl: callbackUrl || "/" })} />}
       <button onClick={() => { setStep("password"); setErr(""); }} className="text-[13px] text-[#3056D3] font-semibold w-full">Log in with password instead</button>
       <p className="text-[11px] text-[#9ca3af] text-center">By continuing you agree to Mediconeeds's <a href="/policy/terms" className="underline">Terms</a> &amp; <a href="/policy/privacy" className="underline">Privacy Policy</a>.</p>
     </AuthCard>

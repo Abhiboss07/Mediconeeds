@@ -5,6 +5,7 @@ import Swiper from "swiper";
 import { Navigation, FreeMode, Autoplay, Pagination, Grid } from "swiper/modules";
 import { signOut } from "next-auth/react";
 import { landingFor } from "@/components/auth/helpers";
+import { greetingName } from "@/lib/identity";
 
 /**
  * Progressive enhancement: the markup is the exact original (pre-rendered with
@@ -61,7 +62,9 @@ export default function Interactions() {
       let user = null;
       try { user = (await (await fetch("/api/auth/session")).json())?.user ?? null; } catch {}
       if (user) {
-        const first = (user.name || "Account").split(" ")[0];
+        // Never render the full email in the navbar — greetingName() falls back
+        // to a single initial when we only have an email-style name.
+        const first = greetingName(user);
         const landing = landingFor(user.role, user.sellerStatus);
         if (loginBtn) {
           const host = loginBtn.querySelector("div") || loginBtn;

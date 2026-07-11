@@ -12,12 +12,18 @@ export const authConfig = {
   providers: [], // real providers are attached in auth.js (Node runtime)
   callbacks: {
     // Persist identity + role on the token at sign-in; reused on every request.
-    jwt({ token, user }) {
+    // On a client-triggered `update` (e.g. profile rename) refresh the display
+    // name so the navbar greeting reflects the edit without a re-login. Edge-safe:
+    // the new value comes from the client payload, not the DB.
+    jwt({ token, user, trigger, session }) {
       if (user) {
         token.uid = user.id;
         token.role = user.role;
         token.sellerStatus = user.sellerStatus ?? null;
         token.name = user.name;
+      }
+      if (trigger === "update" && session && typeof session.name === "string" && session.name.trim()) {
+        token.name = session.name.trim();
       }
       return token;
     },

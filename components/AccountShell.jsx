@@ -1,4 +1,6 @@
 import SiteChrome from "@/components/SiteChrome";
+import { currentBuyer } from "@/lib/account/current";
+import { avatarInitials, greetingName } from "@/lib/identity";
 
 const NAV = [
   { label: "Dashboard", href: "/account" },
@@ -9,16 +11,25 @@ const NAV = [
   { label: "Account Settings", href: "/account/settings" },
 ];
 
-export default function AccountShell({ active, title, children }) {
+export default async function AccountShell({ active, title, children }) {
+  const buyer = await currentBuyer();
+  const idUser = buyer ? { name: buyer.name, email: buyer.email } : null;
+  const initials = avatarInitials(idUser);
+  const greet = greetingName(idUser);
+  const avatarUrl = buyer?.avatarUrl || "";
   const content = (
     <div className="max-w-[84rem] mx-auto px-4 lg:px-8 py-6 lg:py-10">
       <h1 className="text-[24px] lg:text-[30px] font-extrabold text-[#0e1b4d] mb-6">My Account</h1>
       <div className="grid lg:grid-cols-[260px_1fr] gap-6">
         <aside className="bg-white rounded-[16px] border border-[rgba(111,115,132,0.18)] p-3 h-fit">
           <div className="flex items-center gap-3 p-3 mb-2 border-b border-[#eef0f5]">
-            <div className="w-10 h-10 rounded-full bg-[rgba(48,86,211,0.12)] flex items-center justify-center font-bold text-[#3056D3]">A</div>
-            <div>
-              <div className="text-[14px] font-bold text-[#0e1b4d]">Welcome back</div>
+            {avatarUrl ? (
+              <img src={avatarUrl} alt="" className="w-10 h-10 rounded-full object-cover" />
+            ) : (
+              <div className="w-10 h-10 rounded-full bg-[rgba(48,86,211,0.12)] flex items-center justify-center font-bold text-[#3056D3]">{initials}</div>
+            )}
+            <div className="min-w-0">
+              <div className="text-[14px] font-bold text-[#0e1b4d] truncate">{greet !== "Guest" ? `Hi, ${greet}` : "Welcome"}</div>
               <div className="text-[12px] text-[#6b7280]">Mediconeeds Member</div>
             </div>
           </div>

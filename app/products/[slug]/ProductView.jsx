@@ -101,8 +101,16 @@ export default function ProductView({ product, similar = [], brandProducts = [] 
   };
   const buyNow = () => { addCart(); router.push("/checkout"); };
   const toggleWish = () => setWish((w) => {
-    try { const list = JSON.parse(localStorage.getItem("mn_wishlist") || "[]"); localStorage.setItem("mn_wishlist", JSON.stringify(w ? list.filter((s) => s !== product.slug) : [...new Set([...list, product.slug])])); } catch {}
-    return !w;
+    const next = !w;
+    // Local copy for instant paint / guest fallback.
+    try { const list = JSON.parse(localStorage.getItem("mn_wishlist") || "[]"); localStorage.setItem("mn_wishlist", JSON.stringify(next ? [...new Set([...list, product.slug])] : list.filter((s) => s !== product.slug))); } catch {}
+    // Persist to the signed-in buyer's account (best-effort; 401 for guests is fine).
+    fetch("/api/account/wishlist", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ handle: product.slug, action: next ? "add" : "remove" }),
+    }).catch(() => {});
+    return next;
   });
   const share = async () => { try { const url = window.location.href; if (navigator.share) await navigator.share({ title: product.title, url }); else await navigator.clipboard.writeText(url); } catch {} };
   const copyCoupon = async () => { try { await navigator.clipboard.writeText("MEDIFIRST"); } catch {} };
