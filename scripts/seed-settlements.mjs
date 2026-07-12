@@ -78,6 +78,29 @@ weeks.forEach((w, i) => {
   });
 });
 
+// Ensure a demoable paid history even when real orders are sparse or clustered
+// into a single recent week: backfill synthetic PAID cycles for earlier weeks
+// so "Paid to date" and the available balance are non-zero.
+const gross = (n) => { const commission = Math.round(n * (COMMISSION_RATE / 100)); const gstOnCommission = Math.round(commission * (GST_RATE / 100)); return { commission, gstOnCommission, net: n - commission - gstOnCommission }; };
+let paidCount = docs.filter((d) => d.status === "paid").length;
+const earliest = weeks.length ? weeks[0].start : monday(new Date());
+const synthGross = [78500, 54200, 91300];
+for (let k = 0; paidCount < 3 && k < synthGross.length; k++, paidCount++) {
+  const start = new Date(earliest); start.setDate(start.getDate() - 7 * (k + 1));
+  const periodEnd = new Date(start); periodEnd.setDate(periodEnd.getDate() + 6);
+  const g = gross(synthGross[k]);
+  const no = ++seq;
+  docs.unshift({
+    seller: seller._id,
+    settlementNo: `STL-${no}`,
+    invoiceNo: `INV-${periodEnd.getFullYear()}-${no}`,
+    periodStart: start, periodEnd, settledOn: new Date(periodEnd.getTime() + 2 * 864e5),
+    orderCount: 5 + k, gross: synthGross[k], commissionRate: COMMISSION_RATE, commission: g.commission,
+    gstRate: GST_RATE, gstOnCommission: g.gstOnCommission, net: g.net,
+    status: "paid", txnRef: `HDFCN${no}${periodEnd.getFullYear()}`,
+  });
+}
+
 // One synthetic upcoming cycle (current week, no orders settled yet).
 const upStart = monday(new Date());
 const upEnd = new Date(upStart); upEnd.setDate(upEnd.getDate() + 6);
