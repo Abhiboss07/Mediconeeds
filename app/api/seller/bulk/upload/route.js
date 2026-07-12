@@ -8,7 +8,7 @@ import { apiGuard } from "@/lib/auth/session";
 import { currentSeller } from "@/lib/seller/current";
 import { dbConnect } from "@/lib/db/mongoose";
 import { ImportBatch } from "@/lib/db/models/ImportBatch";
-import { publishRow } from "@/lib/bulk/service";
+import { publishChunk } from "@/lib/bulk/service";
 import { rateLimit } from "@/lib/bulk/ratelimit";
 
 export const dynamic = "force-dynamic";
@@ -54,6 +54,7 @@ export async function POST(req) {
   const byIndex = new Map(batch.rows.map((r) => [r.rowIndex, r]));
 
   let created = 0, failed = 0;
+  const toPublish = []; // rows that pass essential checks → bulk-published together
   for (const item of items || []) {
     const row = byIndex.get(item?.rowIndex);
     if (!row || row.status === "success") continue;
@@ -64,14 +65,20 @@ export async function POST(req) {
     for (const k of EDIT_NUM) if (edits[k] !== undefined) d[k] = Number(edits[k]) || 0;
     if (typeof edits.imageUrl === "string" && /^https?:\/\/\S+$/i.test(edits.imageUrl.trim())) d.images = [edits.imageUrl.trim()];
 
-    const reason = essentialReason(d);
-    if (reason) { row.status = "failed"; row.reason = reason; row.data = d; failed++; continue; }
-
-    const res = await publishRow(d, seller._id, batch._id);
     row.data = d;
     row.sku = d.sku || row.sku;
-    if (res.ok) { row.status = "success"; row.product = res.productId; row.reason = ""; created++; }
-    else { row.status = "failed"; row.reason = res.reason; failed++; }
+    const reason = essentialReason(d);
+    if (reason) { row.status = "failed"; row.reason = reason; failed++; continue; }
+    toPublish.push({ rowIndex: row.rowIndex, data: d, row });
+  }
+
+  if (toPublish.length) {
+    const results = await publishChunk(toPublish.map((t) => ({ rowIndex: t.rowIndex, data: t.data })), seller._id, batch._id);
+    for (const t of toPublish) {
+      const res = results.get(t.rowIndex) || { ok: false, reason: "Not processed" };
+      if (res.ok) { t.row.status = "success"; t.row.product = res.productId; t.row.reason = ""; created++; }
+      else { t.row.status = "failed"; t.row.reason = res.reason; failed++; }
+    }
   }
 
   if (finalize) {
