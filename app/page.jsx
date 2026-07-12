@@ -1,5 +1,6 @@
 import Frag from "@/components/Frag";
 import Interactions from "@/components/Interactions";
+import AddressPortal from "@/components/AddressPortal";
 import MegaMenu from "@/components/MegaMenu";
 import SearchOverlay from "@/components/SearchOverlay";
 import { loadManifest, loadHtml } from "@/lib/fragments";
@@ -57,6 +58,7 @@ export default function Home() {
 
       {/* Client behaviour for both trees */}
       <Interactions />
+      <AddressPortal />
       <SearchOverlay />
     </div>
   );

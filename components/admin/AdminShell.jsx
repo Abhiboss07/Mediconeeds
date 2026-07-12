@@ -10,6 +10,7 @@ const NAV = [
   { label: "Brands", href: "/admin/brands", icon: "M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L3.2 7.7l5.4-.8L12 2z" },
   { label: "Banners", href: "/admin/banners", icon: "M3 5h18v14H3zM3 9h18M8 5v4" },
   { label: "Commission", href: "/admin/commission", icon: "M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" },
+  { label: "Withdrawals", href: "/admin/withdrawals", icon: "M2 7h20v10H2zM2 11h20M6 15h4" },
 ];
 
 function Icon({ d }) { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>; }
