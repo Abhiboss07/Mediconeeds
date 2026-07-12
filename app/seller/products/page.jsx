@@ -2,8 +2,7 @@
 import { useMemo, useState } from "react";
 import SellerShell from "@/components/seller/SellerShell";
 import { Badge } from "@/components/seller/ui";
-import { useSellerStore, setProductStatus, deleteProduct, duplicateProduct, addProduct } from "@/lib/seller/store";
-import { importProductsCsv } from "@/lib/seller/api";
+import { useSellerStore, setProductStatus, deleteProduct, duplicateProduct } from "@/lib/seller/store";
 import { inr, PRODUCT_STATUS } from "@/lib/seller/models";
 
 const PAGE = 8;
@@ -15,7 +14,6 @@ export default function Page() {
   const [cat, setCat] = useState("all");
   const [page, setPage] = useState(1);
   const [sel, setSel] = useState([]);
-  const [importing, setImporting] = useState(false);
 
   const cats = [...new Set(s.products.map((p) => p.category))];
 
@@ -46,22 +44,11 @@ export default function Page() {
     URL.revokeObjectURL(a.href);
   };
 
-  const importCsv = async () => {
-    setImporting(true);
-    try {
-      const res = await importProductsCsv(3);
-      // Simulate ingesting the imported rows into the store (pending review).
-      for (let i = 0; i < res.imported; i++) {
-        addProduct({ name: `Imported Product ${i + 1}`, brand: "Dr Awish", sku: `IMP-${res.ref}-${i + 1}`, category: cats[0] || "Skincare", hsn: "3304", gst: 18, mrp: 999, price: 799, wholesale: 640, moq: 10, stock: 50, status: "pending", image: "/catalog/10-vitamin-c-serum.svg" });
-      }
-    } finally { setImporting(false); }
-  };
-
   const bulk = (fn) => { sel.forEach(fn); setSel([]); };
 
   const Actions = (
     <div className="hidden sm:flex items-center gap-2">
-      <button onClick={importCsv} disabled={importing} className="h-[38px] px-3.5 rounded-full border border-[rgba(48,86,211,0.3)] text-[13px] font-semibold text-[#3056D3] disabled:opacity-60">{importing ? "Importing…" : "Import CSV"}</button>
+      <a href="/seller/products/bulk" className="h-[38px] px-3.5 rounded-full border border-[rgba(48,86,211,0.3)] text-[13px] font-semibold text-[#3056D3] inline-flex items-center">Bulk Upload</a>
       <button onClick={exportCsv} className="h-[38px] px-3.5 rounded-full border border-[rgba(111,115,132,0.4)] text-[13px] font-semibold text-[#0e1b4d]">Export CSV</button>
       <a href="/seller/products/new" className="h-[38px] px-4 rounded-full bg-[#3056D3] text-white text-[13px] font-bold inline-flex items-center">+ Add Product</a>
     </div>

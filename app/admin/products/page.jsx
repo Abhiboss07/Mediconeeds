@@ -43,7 +43,7 @@ export default function Page() {
               <tbody>
                 {pending.map((p) => (
                   <tr key={p.id} className="border-b border-[#f5f6fa] last:border-0">
-                    <td className="py-2.5" data-label=""><div className="flex items-center gap-2.5"><img src={p.image} alt="" className="w-9 h-9 rounded-[8px] object-contain border border-[#eef0f5] bg-white shrink-0" /><span className="font-semibold text-[#0e1b4d] max-w-[220px] truncate">{p.name}</span></div></td>
+                    <td className="py-2.5" data-label=""><div className="flex items-center gap-2.5"><img src={p.image} alt="" className="w-9 h-9 rounded-[8px] object-contain border border-[#eef0f5] bg-white shrink-0" /><div className="min-w-0"><div className="flex items-center gap-1.5"><span className="font-semibold text-[#0e1b4d] max-w-[200px] truncate">{p.name}</span>{p.bulk && <Badge tone="indigo">Bulk</Badge>}</div>{p.bulk && <div className="text-[11px] text-[#6b7280]">Batch #{p.batchId} · {new Date(p.createdAt).toLocaleString("en-IN", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" })}</div>}</div></div></td>
                     <td className="py-2.5 text-[#6b7280]" data-label="Seller">{p.seller}</td>
                     <td className="py-2.5 text-[#374151]" data-label="Category">{p.category}</td>
                     <td className="py-2.5 font-semibold text-[#0e1b4d]" data-label="Price">{inr(p.price)}</td>
@@ -66,7 +66,7 @@ export default function Page() {
               <tbody>
                 {reviewed.map((p) => (
                   <tr key={p.id} className="border-b border-[#f5f6fa] last:border-0">
-                    <td className="py-2.5 font-semibold text-[#0e1b4d] max-w-[240px] truncate" data-label="">{p.name}</td>
+                    <td className="py-2.5 font-semibold text-[#0e1b4d]" data-label=""><span className="max-w-[220px] truncate inline-block align-middle">{p.name}</span>{p.bulk && <span className="ml-1.5 align-middle"><Badge tone="indigo">Bulk</Badge></span>}</td>
                     <td className="py-2.5 text-[#374151]" data-label="Category">{p.category}</td>
                     <td className="py-2.5" data-label="Status"><Badge tone={PRODUCT_STATUS[p.status].tone}>{PRODUCT_STATUS[p.status].label}</Badge></td>
                     <td className="py-2.5 text-right" data-label="Action">{p.status === "active" ? <button disabled={busy === p.id} onClick={() => decide(p.id, "reject")} className="text-[12px] font-semibold text-[#d23f3f] disabled:opacity-50">Reject</button> : <button disabled={busy === p.id} onClick={() => decide(p.id, "approve")} className="text-[12px] font-semibold text-[#1E7A5A] disabled:opacity-50">Approve</button>}</td>

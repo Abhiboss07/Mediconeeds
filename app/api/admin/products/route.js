@@ -30,6 +30,9 @@ export async function GET(req) {
       id: String(p._id), name: p.name, sku: p.sku, category: p.category, brand: p.brand,
       mrp: p.mrp, price: p.price, image: p.image, status: p.status,
       seller: nameOf[String(p.seller)] || "—", createdAt: p.createdAt,
+      // Bulk-import provenance for the "Bulk Uploaded" badge.
+      bulk: !!p.bulkBatch,
+      batchId: p.bulkBatch ? String(p.bulkBatch).slice(-6).toUpperCase() : null,
     })),
   });
 }
