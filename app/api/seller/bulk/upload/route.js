@@ -75,7 +75,9 @@ export async function POST(req) {
   }
 
   if (finalize) {
-    for (const r of batch.rows) if (!["success", "failed"].includes(r.status)) { r.status = "skipped"; }
+    // Publishable rows the seller left unpublished → skipped. Validation-"error"
+    // rows stay "error" (rejected) so they remain in the downloadable report.
+    for (const r of batch.rows) if (!["success", "failed", "error"].includes(r.status)) { r.status = "skipped"; }
     batch.status = batch.rows.some((r) => r.status === "failed") ? "partial" : "completed";
     batch.completedAt = new Date();
   }
@@ -84,8 +86,9 @@ export async function POST(req) {
   const c = batch.counts;
   c.success = batch.rows.filter((r) => r.status === "success").length;
   c.failed = batch.rows.filter((r) => r.status === "failed").length;
+  c.errors = batch.rows.filter((r) => r.status === "error").length; // rejected (validation)
   c.skipped = batch.rows.filter((r) => r.status === "skipped").length;
-  c.pending = batch.rows.filter((r) => !["success", "failed", "skipped"].includes(r.status)).length;
+  c.pending = batch.rows.filter((r) => !["success", "failed", "skipped", "error"].includes(r.status)).length;
 
   batch.markModified("rows");
   batch.markModified("counts");

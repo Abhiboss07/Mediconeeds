@@ -49,8 +49,8 @@ export default function Page() {
               <thead>
                 <tr className="text-[#6b7280] text-left border-b border-[#eef0f5]">
                   <th className="pb-2 font-semibold">Import Date</th><th className="pb-2 font-semibold">File</th><th className="pb-2 font-semibold">Rows</th>
-                  <th className="pb-2 font-semibold">Success</th><th className="pb-2 font-semibold">Failed</th><th className="pb-2 font-semibold">Pending</th>
-                  <th className="pb-2 font-semibold">Skipped</th><th className="pb-2 font-semibold">Status</th><th className="pb-2 font-semibold text-right">Actions</th>
+                  <th className="pb-2 font-semibold">Success</th><th className="pb-2 font-semibold">Failed</th><th className="pb-2 font-semibold">Rejected</th>
+                  <th className="pb-2 font-semibold">Pending</th><th className="pb-2 font-semibold">Status</th><th className="pb-2 font-semibold text-right">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,13 +61,13 @@ export default function Page() {
                     <td className="py-2.5 text-[#374151]" data-label="Rows">{b.counts.total}</td>
                     <td className="py-2.5 font-semibold text-[#1E7A5A]" data-label="Success">{b.counts.success}</td>
                     <td className="py-2.5 font-semibold text-[#d23f3f]" data-label="Failed">{b.counts.failed}</td>
+                    <td className="py-2.5 font-semibold text-[#b7791f]" data-label="Rejected">{b.counts.errors || 0}</td>
                     <td className="py-2.5 text-[#3056D3]" data-label="Pending">{b.counts.pending}</td>
-                    <td className="py-2.5 text-[#6b7280]" data-label="Skipped">{b.counts.skipped}</td>
                     <td className="py-2.5" data-label="Status"><Badge tone={TONE[b.status] || "gray"}>{b.status}</Badge></td>
                     <td className="py-2.5 text-right whitespace-nowrap" data-label="Actions">
                       <div className="flex items-center justify-end gap-2">
-                        {b.counts.failed > 0 && <button onClick={() => dl(`/api/seller/bulk/errors/${b.id}`)} className="text-[12px] font-semibold text-[#3056D3]">Error report</button>}
-                        {b.counts.failed > 0 && <button disabled={!!busy} onClick={() => retry(b.id)} className="text-[12px] font-semibold text-[#1E7A5A] disabled:opacity-50">{busy === b.id ? "…" : "Re-import failed"}</button>}
+                        {(b.counts.failed > 0 || (b.counts.errors || 0) > 0) && <button onClick={() => dl(`/api/seller/bulk/errors/${b.id}`)} className="text-[12px] font-semibold text-[#3056D3]">Error report</button>}
+                        {(b.counts.failed > 0 || (b.counts.errors || 0) > 0) && <button disabled={!!busy} onClick={() => retry(b.id)} className="text-[12px] font-semibold text-[#1E7A5A] disabled:opacity-50">{busy === b.id ? "…" : "Re-import"}</button>}
                       </div>
                     </td>
                   </tr>

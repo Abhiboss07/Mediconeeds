@@ -77,7 +77,7 @@ export async function POST(req) {
     hasImagesZip: !!(zip && typeof zip !== "string"),
     status: "validated",
     counts,
-    rows: validated.map((v) => ({ rowIndex: v.rowIndex, data: v.normalized, status: v.status, errors: v.errors, warnings: v.warnings, sku: v.sku, name: v.name })),
+    rows: validated.map((v) => ({ rowIndex: v.rowIndex, data: v.normalized, status: v.status, issues: v.errors, warnings: v.warnings, sku: v.sku, name: v.name })),
   });
 
   return NextResponse.json({

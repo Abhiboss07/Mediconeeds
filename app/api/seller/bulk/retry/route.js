@@ -41,8 +41,10 @@ export async function POST(req) {
   const src = await ImportBatch.findOne({ _id: batchId, seller: seller._id }).catch(() => null);
   if (!src) return NextResponse.json({ ok: false, error: "Batch not found" }, { status: 404 });
 
-  const failed = src.rows.filter((r) => r.status === "failed");
-  if (!failed.length) return NextResponse.json({ ok: false, error: "No failed rows to retry." }, { status: 422 });
+  // Re-import both publish-failures and validation-rejected rows so the seller
+  // can fix them in the preview and try again.
+  const failed = src.rows.filter((r) => r.status === "failed" || r.status === "error");
+  if (!failed.length) return NextResponse.json({ ok: false, error: "No failed or rejected rows to retry." }, { status: 422 });
 
   const existing = new Set((await getExistingSkus(seller._id)).map((s) => s.toLowerCase()));
 
@@ -53,7 +55,7 @@ export async function POST(req) {
     if (d.sku && existing.has(String(d.sku).toLowerCase())) errors.push("SKU already exists in your catalogue");
     const warnings = r.warnings || [];
     const status = errors.length ? "error" : warnings.length ? "warning" : "valid";
-    return { rowIndex: ++seq, data: d, status, errors, warnings, sku: d.sku || "", name: d.name || "" };
+    return { rowIndex: ++seq, data: d, status, issues: errors, warnings, sku: d.sku || "", name: d.name || "" };
   });
 
   const counts = {

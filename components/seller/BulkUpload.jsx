@@ -8,6 +8,7 @@ import { SectionCard, Badge } from "@/components/seller/ui";
 import { inr } from "@/lib/seller/models";
 
 const CHUNK = 100;
+const PSIZE = 50; // preview rows per page — keeps the DOM light for 1000+ imports
 const STATUS_TONE = { valid: "green", warning: "amber", error: "red", success: "green", failed: "red", skipped: "gray", pending: "blue" };
 
 function uploadWithProgress(url, formData, onProgress) {
@@ -61,6 +62,7 @@ export default function BulkUpload() {
   const [edits, setEdits] = useState({}); // rowIndex → {field:val}
   const [removed, setRemoved] = useState({}); // rowIndex → true
   const [result, setResult] = useState(null);
+  const [ppage, setPpage] = useState(0);
   const fileRef = useRef(null);
   const zipRef = useRef(null);
 
@@ -79,7 +81,7 @@ export default function BulkUpload() {
   const rowErr = (r) => (edits[r.rowIndex] ? localErrors(merged(r)) : r.errors);
   const publishable = rows.filter((r) => !removed[r.rowIndex] && rowErr(r).length === 0);
 
-  const reset = () => { setStep("start"); setFile(null); setZip(null); setRows([]); setSummary(null); setBatchId(""); setEdits({}); setRemoved({}); setResult(null); setErr(""); setPct(0); setNotes([]); setZipInfo(null); };
+  const reset = () => { setStep("start"); setFile(null); setZip(null); setRows([]); setSummary(null); setBatchId(""); setEdits({}); setRemoved({}); setResult(null); setErr(""); setPct(0); setNotes([]); setZipInfo(null); setPpage(0); };
 
   const pickFile = (f) => {
     if (!f) return;
@@ -109,6 +111,7 @@ export default function BulkUpload() {
       if (body.unknownHeaders?.length) n.push(`Ignored unknown columns: ${body.unknownHeaders.join(", ")}`);
       if (body.zipInfo?.limitReached) n.push("Some ZIP images were skipped (storage limit) — use image URLs for large catalogues.");
       setNotes(n);
+      setPpage(0);
       setStep("preview");
     } catch (e) { setErr(e.message || "Upload failed."); }
     finally { setBusy(false); }
@@ -135,7 +138,8 @@ export default function BulkUpload() {
         created += res.created || 0; failed += res.failed || 0;
         setPct(Math.min(100, ((i + chunk.length) / items.length) * 100));
       }
-      setResult({ created, failed, total: items.length });
+      const rejected = rows.filter((r) => !removed[r.rowIndex] && rowErr(r).length > 0).length;
+      setResult({ created, failed, total: items.length, rejected });
       setStep("done");
     } catch (e) { setErr(e.message || "Publish failed."); setStep("preview"); }
   }
@@ -162,9 +166,9 @@ export default function BulkUpload() {
         <div className="py-6 text-center max-w-[560px] mx-auto">
           <div className="w-16 h-16 rounded-full bg-[#e6f4ee] text-[#1E7A5A] flex items-center justify-center mx-auto text-[30px]">✓</div>
           <h3 className="text-[18px] font-extrabold text-[#0e1b4d] mt-4">{result.created} product{result.created === 1 ? "" : "s"} submitted for approval</h3>
-          <p className="text-[13px] text-[#6b7280] mt-1">They are now <b>Pending Approval</b> and go live once the Mediconeeds team approves them.{result.failed > 0 ? ` ${result.failed} row(s) failed.` : ""}</p>
+          <p className="text-[13px] text-[#6b7280] mt-1">They are now <b>Pending Approval</b> and go live once the Mediconeeds team approves them.{result.failed > 0 ? ` ${result.failed} row(s) failed to create.` : ""}{result.rejected > 0 ? ` ${result.rejected} row(s) were rejected in validation.` : ""}</p>
           <div className="flex flex-wrap gap-2 justify-center mt-6">
-            {result.failed > 0 && <a href={`/api/seller/bulk/errors/${batchId}`} className="h-[42px] leading-[42px] px-5 rounded-full border border-[#d23f3f] text-[#d23f3f] text-[13px] font-bold">Download error report</a>}
+            {(result.failed > 0 || result.rejected > 0) && <a href={`/api/seller/bulk/errors/${batchId}`} className="h-[42px] leading-[42px] px-5 rounded-full border border-[#d23f3f] text-[#d23f3f] text-[13px] font-bold">Download error report</a>}
             <a href="/seller/products" className="h-[42px] leading-[42px] px-5 rounded-full bg-[#3056D3] text-white text-[13px] font-bold">View my products</a>
             <a href="/seller/products/bulk/history" className="h-[42px] leading-[42px] px-5 rounded-full border border-[#e2e5ee] text-[#374151] text-[13px] font-bold">Import history</a>
             <button onClick={reset} className="h-[42px] px-5 rounded-full border border-[#e2e5ee] text-[#374151] text-[13px] font-bold">Upload another file</button>
@@ -249,7 +253,7 @@ export default function BulkUpload() {
                 </tr>
               </thead>
               <tbody>
-                {rows.map((r0) => {
+                {rows.slice(ppage * PSIZE, ppage * PSIZE + PSIZE).map((r0) => {
                   const r = merged(r0);
                   const errs = rowErr(r0);
                   const st = removed[r0.rowIndex] ? "skipped" : errs.length ? "error" : (r0.warnings.length ? "warning" : "valid");
@@ -282,6 +286,14 @@ export default function BulkUpload() {
               </tbody>
             </table>
           </div>
+
+          {rows.length > PSIZE && (
+            <div className="flex items-center justify-center gap-3 mt-3 text-[13px]">
+              <button onClick={() => setPpage((p) => Math.max(0, p - 1))} disabled={ppage === 0} className="h-[32px] px-3 rounded-full border border-[#e2e5ee] font-semibold disabled:opacity-40">← Prev</button>
+              <span className="text-[#6b7280]">Rows {ppage * PSIZE + 1}–{Math.min(rows.length, (ppage + 1) * PSIZE)} of {rows.length}</span>
+              <button onClick={() => setPpage((p) => Math.min(Math.ceil(rows.length / PSIZE) - 1, p + 1))} disabled={(ppage + 1) * PSIZE >= rows.length} className="h-[32px] px-3 rounded-full border border-[#e2e5ee] font-semibold disabled:opacity-40">Next →</button>
+            </div>
+          )}
 
           <div className="flex items-center justify-between flex-wrap gap-3 mt-4">
             <p className="text-[13px] text-[#374151]"><b>{publishable.length}</b> product{publishable.length === 1 ? "" : "s"} ready to publish{rows.length - publishable.length > 0 ? ` · ${rows.length - publishable.length} excluded (errors/removed)` : ""}</p>
