@@ -5,14 +5,21 @@
 // gracefully.
 const inr = (n) => "₹" + Number(n || 0).toLocaleString("en-IN");
 
-export default function ProductRail({ title = "Our Products", products = [], viewAllHref = "/products" }) {
-  if (!products.length) return null;
+export default function ProductRail({ title = "Our Products", products = [], viewAllHref = "/products", keepWhenEmpty = false }) {
+  // Hide only when explicitly allowed; otherwise keep the section with a
+  // graceful zero-state so the homepage never loses a section.
+  if (!products.length && !keepWhenEmpty) return null;
   return (
     <section className="flex flex-col gap-4 lg:gap-5">
       <div className="flex items-center justify-between">
         <h2 className="text-[18px] lg:text-[22px] font-extrabold text-[#0e1b4d]">{title}</h2>
         <a href={viewAllHref} className="text-[13px] font-semibold text-[#3056d3] hover:underline">View All</a>
       </div>
+      {!products.length && (
+        <div className="rounded-[12px] border border-dashed border-[rgba(111,115,132,0.3)] bg-white/60 py-8 text-center text-[13px] text-[#6f7384]">
+          No products available yet — check back soon.
+        </div>
+      )}
       <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-2 mn-noscroll">
         {products.map((p) => (
           <a

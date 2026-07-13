@@ -18,10 +18,16 @@ export default function ShopByCategory({ categories = [], variant = "desktop" })
             aria-label={`${c.name} — ${c.count} ${c.count === 1 ? "product" : "products"}`}
             className="flex flex-col items-center justify-center gap-2 aspect-square w-full px-2 py-1.5 lg:pt-[0.713rem] lg:pb-[0.713rem] lg:pl-[0.951rem] lg:pr-[0.951rem] bg-white/70 rounded-[12px] lg:rounded-[0.713rem] border-[0.48px] border-[rgba(111,115,132,0.2)] shadow-[0.119rem_0.119rem_0.119rem_rgba(0,0,0,0.02)] transition-all duration-200 hover:shadow-[inset_0_0_0_1.5px_#6082EE,0.119rem_0.119rem_0.231rem_rgba(0,0,0,0.15)]"
           >
-            <div className="w-[4.06rem] h-[4.06rem] lg:w-[92px] lg:h-[92px] relative">
+            <div className="w-[4.06rem] h-[4.06rem] lg:w-[92px] lg:h-[92px] relative flex items-center justify-center">
               {c.image
                 ? <img src={c.image} alt={c.name} className="w-full h-full object-contain" width="92" height="92" />
-                : <div className="w-full h-full rounded-full" style={{ background: c.color, opacity: 0.15 }} />}
+                : (
+                  // Clean default placeholder for a category with no icon/image yet.
+                  <div className="w-[70%] h-[70%] rounded-full flex items-center justify-center text-[20px] font-extrabold"
+                    style={{ background: (c.color || "#3056D3") + "22", color: c.color || "#3056D3" }}>
+                    {c.name.charAt(0).toUpperCase()}
+                  </div>
+                )}
             </div>
             <p className="text-center text-[13px] lg:text-[15px] font-bold" style={{ color: "#1F3580" }}>{c.name}</p>
             <p className="text-center text-[11px] lg:text-[12px] text-[#6f7384]">{c.count} {c.count === 1 ? "product" : "products"}</p>
