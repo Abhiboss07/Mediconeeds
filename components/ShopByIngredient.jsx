@@ -17,7 +17,7 @@ export default function ShopByIngredient({ ingredients = [], variant = "desktop"
           <a
             key={ing.name}
             href={`/products?ingredient=${encodeURIComponent(ing.name)}`}
-            aria-label={`${ing.name} — ${ing.count} ${ing.count === 1 ? "product" : "products"}`}
+            aria-label={ing.count > 0 ? `${ing.name} — ${ing.count} ${ing.count === 1 ? "product" : "products"}` : `${ing.name} — coming soon`}
             className="shrink-0 w-[104px] lg:w-[128px] flex flex-col items-center justify-center gap-1.5 px-2 py-3 bg-white rounded-[12px] border-[0.8px] border-[rgba(111,115,132,0.18)] shadow-[0_1px_2px_rgba(14,27,77,0.04)] transition-all duration-200 hover:shadow-[inset_0_0_0_1.5px_#6082EE,0_2px_8px_rgba(14,27,77,0.10)]"
           >
             <div className="w-[2.9rem] h-[2.9rem] lg:w-[52px] lg:h-[52px] rounded-full flex items-center justify-center text-[16px] lg:text-[20px] font-extrabold" style={{ background: "#eef2ff", color: "#3056D3" }}>
