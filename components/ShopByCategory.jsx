@@ -25,7 +25,7 @@ export default function ShopByCategory({ categories = [], variant = "desktop" })
     );
     const cls = "flex flex-col items-center justify-center gap-1.5 w-full min-h-[112px] lg:min-h-[124px] px-2 py-3 bg-white rounded-[12px] border-[0.8px] border-[rgba(111,115,132,0.18)] shadow-[0_1px_2px_rgba(14,27,77,0.04)]";
     return live ? (
-      <a href={`/products?category=${encodeURIComponent(c.name)}`} aria-label={`${c.name} — ${c.count} products`}
+      <a href={`/products?category=${encodeURIComponent(c.name)}`} aria-label={`${c.name} — ${c.count} ${c.count === 1 ? "product" : "products"}`}
         className={cls + " transition-all duration-200 hover:shadow-[inset_0_0_0_1.5px_#6082EE,0_2px_8px_rgba(14,27,77,0.10)]"}>
         {inner}
       </a>
