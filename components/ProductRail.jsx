@@ -1,54 +1,53 @@
-// Horizontal rail of REAL products from the live catalogue. Replaces the static
-// clone carousels ("Our Bestsellers", "New Launches", "Summer Essentials") whose
-// cards showed mock product names/prices/ratings that don't exist in the real
-// catalogue. Renders nothing when there are no products, so the section hides
-// gracefully.
+"use client";
+// Horizontal rail of REAL products from the live catalogue, styled to match the
+// reference product card (image, rating, title, price/old-price/discount, Add
+// button). Never injects mock products; shows a clean "Coming Soon" state when a
+// section has no matching products so the layout is preserved.
+import { addItem } from "@/lib/cart/store";
+
 const inr = (n) => "₹" + Number(n || 0).toLocaleString("en-IN");
 
+function Card({ p }) {
+  const add = (e) => {
+    e.preventDefault();
+    addItem({ id: p.id || p.slug, slug: p.slug, name: p.title, image: p.image, price: p.price, sku: p.variants?.[0]?.sku || "" });
+  };
+  return (
+    <a href={`/products/${p.slug}`} className="shrink-0 w-[168px] lg:w-[184px] bg-white rounded-[10px] border border-[rgba(111,115,132,0.16)] hover:shadow-[0_6px_20px_rgba(14,27,77,0.10)] transition-shadow flex flex-col">
+      <div className="aspect-square p-3 bg-[#fafbfe] rounded-t-[10px] flex items-center justify-center">
+        <img src={p.image} alt={p.title} className="max-w-full max-h-full object-contain" />
+      </div>
+      <div className="px-2.5 pt-2 pb-2.5 flex flex-col gap-1 flex-1">
+        <div className="flex items-center gap-1 text-[10.5px] text-[#f5a623] font-semibold">★ <span className="text-[#6f7384]">({(p.rating || 0).toFixed(1)})</span></div>
+        <div className="text-[11.5px] text-[#0e1b4d] font-semibold leading-snug line-clamp-2 min-h-[30px]">{p.title}</div>
+        <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 mt-0.5">
+          <span className="text-[13.5px] font-extrabold text-[#0e1b4d]">{inr(p.price)}</span>
+          {p.compareAt > p.price && <span className="text-[10.5px] text-[#9ca3af] line-through">{inr(p.compareAt)}</span>}
+          {p.discount > 0 && <span className="text-[10px] font-bold text-[#1e7a5a]">{p.discount}% OFF</span>}
+        </div>
+        <button onClick={add} className="mt-1.5 h-[30px] rounded-[8px] border border-[#3056d3] text-[#3056d3] text-[12px] font-bold hover:bg-[#eef2ff] transition-colors">Add</button>
+      </div>
+    </a>
+  );
+}
+
 export default function ProductRail({ title = "Our Products", products = [], viewAllHref = "/products", keepWhenEmpty = false }) {
-  // Hide only when explicitly allowed; otherwise keep the section with a
-  // graceful zero-state so the homepage never loses a section.
   if (!products.length && !keepWhenEmpty) return null;
   return (
-    <section className="flex flex-col gap-4 lg:gap-5">
+    <section className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-[18px] lg:text-[22px] font-extrabold text-[#0e1b4d]">{title}</h2>
-        <a href={viewAllHref} className="text-[13px] font-semibold text-[#3056d3] hover:underline">View All</a>
+        <h2 className="text-[19px] lg:text-[22px] font-extrabold text-[#0e1b4d]">{title}</h2>
+        {products.length > 0 && <a href={viewAllHref} className="text-[12.5px] font-semibold text-[#3056d3] hover:underline">View All</a>}
       </div>
-      {!products.length && (
-        <div className="rounded-[12px] border border-dashed border-[rgba(111,115,132,0.3)] bg-white/60 py-8 text-center text-[13px] text-[#6f7384]">
-          No products available yet — check back soon.
+      {products.length ? (
+        <div className="flex gap-3 lg:gap-3.5 overflow-x-auto pb-1 mn-noscroll">
+          {products.map((p) => <Card key={p.slug} p={p} />)}
+        </div>
+      ) : (
+        <div className="rounded-[10px] border border-dashed border-[rgba(111,115,132,0.3)] bg-white/60 py-10 text-center text-[13px] text-[#9aa0b4] italic">
+          Coming Soon
         </div>
       )}
-      <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-2 mn-noscroll">
-        {products.map((p) => (
-          <a
-            key={p.slug}
-            href={`/products/${p.slug}`}
-            className="shrink-0 w-[150px] lg:w-[196px] bg-white rounded-[12px] border border-[rgba(111,115,132,0.18)] overflow-hidden hover:shadow-[0_8px_24px_rgba(14,27,77,0.10)] transition-shadow"
-          >
-            <div className="aspect-square p-2 relative bg-[#fafbfe]">
-              <img src={p.image} alt={p.title} className="w-full h-full object-contain" width="196" height="196" />
-              {p.discount > 0 && (
-                <span className="absolute top-2 left-2 text-[10px] font-bold text-white bg-[#1e7a5a] rounded px-1.5 py-0.5">{p.discount}% OFF</span>
-              )}
-            </div>
-            <div className="px-3 pb-3">
-              <div className="text-[12.5px] font-semibold text-[#0e1b4d] line-clamp-2 min-h-[34px]">{p.title}</div>
-              {p.rating > 0 && (
-                <div className="text-[11px] text-[#8a93a6] mt-1">★ {p.rating.toFixed(1)}{p.reviews ? ` (${p.reviews})` : ""}</div>
-              )}
-              <div className="flex items-baseline gap-1.5 mt-1">
-                <span className="text-[14px] font-bold text-[#0e1b4d]">{inr(p.price)}</span>
-                {p.compareAt > p.price && <span className="text-[11px] text-[#9ca3af] line-through">{inr(p.compareAt)}</span>}
-              </div>
-              <div className="text-[10.5px] font-semibold mt-1" style={{ color: p.stock > 0 ? "#1e7a5a" : "#c0392b" }}>
-                {p.stock > 0 ? "In stock" : "Out of stock"}
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
     </section>
   );
 }

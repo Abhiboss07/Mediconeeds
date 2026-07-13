@@ -8,31 +8,27 @@ import ShopByCategory from "@/components/ShopByCategory";
 import ShopByIngredient from "@/components/ShopByIngredient";
 import ProductRail from "@/components/ProductRail";
 import { loadManifest, loadHtml, makeProductLinker } from "@/lib/fragments";
-import { getStorefrontProducts, getCategoryCounts, getIngredientCounts, getNewArrivals } from "@/lib/catalog/store";
+import { getStorefrontProducts, getHomeCategoryCounts, getIngredientCounts, getNewArrivals } from "@/lib/catalog/store";
 import ingredientTaxonomy from "@/data/catalog/ingredients.json";
 
-// Every original homepage SECTION is preserved, but each is now driven by the
-// live database instead of static/mock content — count grids show real counts
-// (0 allowed for ingredients), product carousels show real products with a
-// graceful zero-state. Nothing is hardcoded and no section is removed.
+// Homepage section slots → the reference section title + which REAL products it
+// shows. Each source is a genuine filter (tags/category/discount), never padded
+// or duplicated to fake volume; an empty result renders a "Coming Soon" state.
 const RAILS = {
-  // desktop section name → { title, source, href }
   "sec-02-dental-instruments-consu": { title: "Our Bestsellers", src: "best" },
   "sec-03-lab-bestsellers-view-all": { title: "New Launches", src: "new" },
-  "sec-05-premium-diagnostics-ot-h": { title: "Serums", src: "cat:Serums", href: "/products?category=Serums" },
-  "sec-06-top-selling-consumables-": { title: "Deals & Offers", src: "offers", href: "/products?offers=1" },
-  "sec-07-dental-equipment-zone-vi": { title: "Sunscreens", src: "cat:Sunscreens", href: "/products?category=Sunscreens" },
-  "sec-08-diagnostic-precision-pro": { title: "Combos & Kits", src: "cat:Combos & Kits", href: "/products?category=Combos+%26+Kits" },
-  "sec-09-top-selling-critical-car": { title: "Recommended for You", src: "best" },
-  "refurbished": { title: "Curated Skincare Ranges", src: "all" },
-  // mobile equivalents
+  "sec-05-premium-diagnostics-ot-h": { title: "Summer Essentials", src: "summer" },
+  "sec-06-top-selling-consumables-": { title: "Lightning Deal", src: "lightning" },
+  "sec-07-dental-equipment-zone-vi": { title: "Best-Value Kits & Combos", src: "kits" },
+  "sec-08-diagnostic-precision-pro": { title: "Target Acne & Pigmentation", src: "acne" },
+  "sec-09-top-selling-critical-car": { title: "Anti-Ageing Heroes", src: "antiage" },
   "m-dental": { title: "Our Bestsellers", src: "best" },
   "m-lab": { title: "New Launches", src: "new" },
-  "m-premium": { title: "Serums", src: "cat:Serums", href: "/products?category=Serums" },
-  "m-consumables": { title: "Deals & Offers", src: "offers", href: "/products?offers=1" },
-  "m-dental-equip": { title: "Sunscreens", src: "cat:Sunscreens", href: "/products?category=Sunscreens" },
-  "m-promo": { title: "Combos & Kits", src: "cat:Combos & Kits", href: "/products?category=Combos+%26+Kits" },
-  "m-critical": { title: "Recommended for You", src: "best" },
+  "m-premium": { title: "Summer Essentials", src: "summer" },
+  "m-consumables": { title: "Lightning Deal", src: "lightning" },
+  "m-dental-equip": { title: "Best-Value Kits & Combos", src: "kits" },
+  "m-promo": { title: "Target Acne & Pigmentation", src: "acne" },
+  "m-critical": { title: "Anti-Ageing Heroes", src: "antiage" },
 };
 
 // ISR: served from cache (fast TTFB) but regenerated every 60s, so a newly
@@ -42,28 +38,36 @@ export const revalidate = 60;
 
 export default async function Home() {
   // Counts come from Mongo aggregation (no full scan); the product list is
-  // fetched once and the rails are derived from it in-memory (no redundant
-  // queries). The fragments' stub product links are rewritten to real handles.
-  const [products, categoryCounts, ingredientCounts, newArrivals] = await Promise.all([
+  // fetched once and every section is derived from it in-memory by a REAL filter
+  // (no duplication, no mock). Category grid shows the full taxonomy with live
+  // counts or "Coming Soon".
+  const [products, categories, ingredientCounts, newArrivals] = await Promise.all([
     getStorefrontProducts().catch(() => []),
-    getCategoryCounts().catch(() => []),
+    getHomeCategoryCounts().catch(() => []),
     getIngredientCounts(ingredientTaxonomy.map((i) => i.name)).catch(() => []),
     getNewArrivals(12).catch(() => []),
   ]);
-  const bestsellers = [...products].sort((a, b) => (b.reviews * b.rating - a.reviews * a.rating) || (b.stock - a.stock));
-  const offers = products.filter((p) => p.discount > 0).sort((a, b) => b.discount - a.discount);
   const linkify = makeProductLinker(products.map((p) => p.handle || p.slug));
 
-  const byCat = (name) => products.filter((p) => (p.categoryName || p.category) === name);
-  const railItems = (src) =>
-    src === "best" ? bestsellers : src === "new" ? newArrivals : src === "offers" ? offers
-      : src === "all" ? products : src.startsWith("cat:") ? byCat(src.slice(4)) : [];
+  const hasTag = (p, ...t) => (p.tags || []).some((x) => t.includes(String(x).toLowerCase()));
+  const foldKey = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "").replace(/s$/, "");
+  const inCat = (p, name) => foldKey(p.categoryName || p.category) === foldKey(name);
+  const SECTIONS = {
+    best: [...products].sort((a, b) => (b.reviews * b.rating - a.reviews * a.rating) || (b.stock - a.stock)),
+    new: newArrivals,
+    summer: products.filter((p) => hasTag(p, "sunscreen", "spf") || inCat(p, "Sunscreen")),
+    lightning: products.filter((p) => p.discount > 0).sort((a, b) => b.discount - a.discount),
+    kits: products.filter((p) => hasTag(p, "combo", "kit") || inCat(p, "Combos & Kits")),
+    acne: products.filter((p) => hasTag(p, "acne", "pigmentation")),
+    antiage: products.filter((p) => hasTag(p, "anti-ageing", "antiageing", "retinol", "night")),
+  };
+  const railItems = (src) => SECTIONS[src] || [];
 
   // Render one homepage section: DB-driven grid/rail where we have a real
   // component, otherwise the original static fragment (banner, trust-strip,
   // testimonials, explore chips…). A section is never dropped.
   const renderSection = (name, mobile) => {
-    if (name === "shop-by-category") return <ShopByCategory key={name} categories={categoryCounts} variant={mobile ? "mobile" : "desktop"} />;
+    if (name === "shop-by-category") return <ShopByCategory key={name} categories={categories} variant={mobile ? "mobile" : "desktop"} />;
     if (name === "top-brands") return <ShopByIngredient key={name} ingredients={ingredientCounts} variant={mobile ? "mobile" : "desktop"} />;
     const rail = RAILS[name];
     if (rail) {

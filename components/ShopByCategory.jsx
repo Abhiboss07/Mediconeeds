@@ -1,39 +1,45 @@
-// Database-driven "Shop by Category" grid. Replaces the old static clone section
-// whose counts were hardcoded (e.g. "Sunscreen 48 products") and which linked to
-// categories with no real products. Every card here comes from live published
-// CatalogProducts: real count, a real product image, and a link that the PLP
-// category filter actually matches. Renders nothing when the catalogue is empty
-// (section hides gracefully).
+// "Shop by Category" grid — matches the reference: every taxonomy category is
+// always shown as a coloured letter tile. The count is the REAL live number
+// ("3 Products") or "Coming Soon" when the category has no live products (count
+// 0). Categories with products link to their filtered listing; "Coming Soon"
+// ones are non-interactive. Fully database-driven — no hardcoded counts.
 export default function ShopByCategory({ categories = [], variant = "desktop" }) {
   if (!categories.length) return null;
   const mobile = variant === "mobile";
+
+  const Tile = ({ c }) => {
+    const live = c.count > 0;
+    const inner = (
+      <>
+        <div
+          className="w-[46px] h-[46px] lg:w-[52px] lg:h-[52px] rounded-[12px] flex items-center justify-center text-[20px] lg:text-[22px] font-extrabold"
+          style={{ background: (c.color || "#3056d3") + "1f", color: c.color || "#3056d3" }}
+        >
+          {c.name.charAt(0).toUpperCase()}
+        </div>
+        <p className="text-center text-[12px] lg:text-[13.5px] font-bold leading-tight text-[#1F3580]">{c.name}</p>
+        <p className={`text-center text-[10.5px] lg:text-[11.5px] ${live ? "text-[#6f7384]" : "text-[#9aa0b4] italic"}`}>
+          {live ? `${c.count} ${c.count === 1 ? "Product" : "Products"}` : "Coming Soon"}
+        </p>
+      </>
+    );
+    const cls = "flex flex-col items-center justify-center gap-1.5 w-full min-h-[112px] lg:min-h-[124px] px-2 py-3 bg-white rounded-[12px] border-[0.8px] border-[rgba(111,115,132,0.18)] shadow-[0_1px_2px_rgba(14,27,77,0.04)]";
+    return live ? (
+      <a href={`/products?category=${encodeURIComponent(c.name)}`} aria-label={`${c.name} — ${c.count} products`}
+        className={cls + " transition-all duration-200 hover:shadow-[inset_0_0_0_1.5px_#6082EE,0_2px_8px_rgba(14,27,77,0.10)]"}>
+        {inner}
+      </a>
+    ) : (
+      <div aria-label={`${c.name} — coming soon`} className={cls + " opacity-90"}>{inner}</div>
+    );
+  };
+
   return (
-    <div className={mobile ? "px-4 py-3" : "flex flex-col gap-4 lg:gap-6"}>
-      <h2 className={mobile ? "text-[18px] font-extrabold text-[#0e1b4d] mb-3" : "sc-edc1745e-0 lbuWQp"}>Shop by Category</h2>
-      <div className="grid grid-cols-3 lg:grid-cols-6 gap-[1.125rem] lg:gap-[1.38rem]">
-        {categories.map((c) => (
-          <a
-            key={c.name}
-            href={`/products?category=${encodeURIComponent(c.name)}`}
-            aria-label={`${c.name} — ${c.count} ${c.count === 1 ? "product" : "products"}`}
-            className="flex flex-col items-center justify-center gap-2 aspect-square w-full px-2 py-1.5 lg:pt-[0.713rem] lg:pb-[0.713rem] lg:pl-[0.951rem] lg:pr-[0.951rem] bg-white/70 rounded-[12px] lg:rounded-[0.713rem] border-[0.48px] border-[rgba(111,115,132,0.2)] shadow-[0.119rem_0.119rem_0.119rem_rgba(0,0,0,0.02)] transition-all duration-200 hover:shadow-[inset_0_0_0_1.5px_#6082EE,0.119rem_0.119rem_0.231rem_rgba(0,0,0,0.15)]"
-          >
-            <div className="w-[4.06rem] h-[4.06rem] lg:w-[92px] lg:h-[92px] relative flex items-center justify-center">
-              {c.image
-                ? <img src={c.image} alt={c.name} className="w-full h-full object-contain" width="92" height="92" />
-                : (
-                  // Clean default placeholder for a category with no icon/image yet.
-                  <div className="w-[70%] h-[70%] rounded-full flex items-center justify-center text-[20px] font-extrabold"
-                    style={{ background: (c.color || "#3056D3") + "22", color: c.color || "#3056D3" }}>
-                    {c.name.charAt(0).toUpperCase()}
-                  </div>
-                )}
-            </div>
-            <p className="text-center text-[13px] lg:text-[15px] font-bold" style={{ color: "#1F3580" }}>{c.name}</p>
-            <p className="text-center text-[11px] lg:text-[12px] text-[#6f7384]">{c.count} {c.count === 1 ? "product" : "products"}</p>
-          </a>
-        ))}
+    <section className={mobile ? "px-4 py-3" : "flex flex-col gap-3 lg:gap-4"}>
+      <h2 className={mobile ? "text-[18px] font-extrabold text-[#0e1b4d] mb-1" : "text-[19px] lg:text-[22px] font-extrabold text-[#0e1b4d]"}>Shop by Category</h2>
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-[0.75rem] lg:gap-[0.9rem]">
+        {categories.map((c) => <Tile key={c.name} c={c} />)}
       </div>
-    </div>
+    </section>
   );
 }
