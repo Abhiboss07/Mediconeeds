@@ -2,6 +2,7 @@
 import { Suspense, useMemo, useState, useCallback } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { addItem } from "@/lib/cart/store";
+import { foldCategoryKey } from "@/lib/bulk/categories";
 
 const inr = (n) => "₹" + Number(n).toLocaleString("en-IN");
 const PAGE_SIZE = 12;
@@ -220,7 +221,7 @@ function ListingInner({ products, defaultSort = "featured", offersOnly = false }
       const q = sel.q.toLowerCase();
       r = r.filter((p) => (p.title + " " + (p.categoryName || "") + " " + (p.ingredient || "") + " " + (p.brand || "")).toLowerCase().includes(q));
     }
-    if (sel.category.length) r = r.filter((p) => sel.category.includes(p.categoryName || p.category));
+    if (sel.category.length) { const wanted = new Set(sel.category.map(foldCategoryKey)); r = r.filter((p) => wanted.has(foldCategoryKey(p.categoryName || p.category))); }
     if (sel.brand.length) r = r.filter((p) => sel.brand.includes(p.brand));
     if (sel.ingredient.length) r = r.filter((p) => sel.ingredient.includes(p.ingredient));
     if (sel.skin.length) r = r.filter((p) => (p.skinTypes || []).some((s) => sel.skin.includes(s)));
