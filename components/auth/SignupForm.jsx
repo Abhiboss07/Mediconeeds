@@ -5,7 +5,7 @@ import { AuthCard } from "@/components/ui";
 import { AInput, AButton, Alert, Divider, OtpBoxes, GoogleButton } from "./fields";
 import { landingFor, postJSON, fetchSession } from "./helpers";
 
-export default function SignupForm({ googleEnabled = false }) {
+export default function SignupForm({ googleEnabled = false, callbackUrl = "" }) {
   const [step, setStep] = useState("form"); // form | otp
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -39,7 +39,11 @@ export default function SignupForm({ googleEnabled = false }) {
     setLoading(false);
     if (res?.error) return setErr("Incorrect or expired code. Please try again.");
     const s = await fetchSession();
-    window.location.href = landingFor(s?.user?.role, s?.user?.sellerStatus);
+    const role = s?.user?.role;
+    // New buyers land on the home page (natural ecommerce flow); staff go to
+    // their dashboards. A callbackUrl (came from a protected page) always wins.
+    const target = callbackUrl || (!role || role === "buyer" ? "/" : landingFor(role, s?.user?.sellerStatus));
+    window.location.href = target;
   }
 
   const footer = <>Already have an account? <a href="/login" className="text-[#3056D3] font-semibold">Log in</a></>;
@@ -64,7 +68,7 @@ export default function SignupForm({ googleEnabled = false }) {
       <AInput label="Mobile Number" type="tel" value={phone} onChange={setPhone} placeholder="+91 ..." autoComplete="tel" />
       <AInput label="Email ID" type="email" value={email} onChange={setEmail} placeholder="you@example.com" autoComplete="email" />
       <AButton onClick={createAccount} loading={loading}>Create Account</AButton>
-      {googleEnabled && <><Divider /><GoogleButton onClick={() => signIn("google", { callbackUrl: "/account" })} /></>}
+      {googleEnabled && <><Divider /><GoogleButton onClick={() => signIn("google", { callbackUrl: callbackUrl || "/" })} /></>}
     </AuthCard>
   );
 }

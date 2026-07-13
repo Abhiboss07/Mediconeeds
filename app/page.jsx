@@ -3,12 +3,20 @@ import Interactions from "@/components/Interactions";
 import AddressPortal from "@/components/AddressPortal";
 import MegaMenu from "@/components/MegaMenu";
 import SearchOverlay from "@/components/SearchOverlay";
-import { loadManifest, loadHtml } from "@/lib/fragments";
+import { loadManifest, loadHtml, makeProductLinker } from "@/lib/fragments";
+import { getStorefrontProducts } from "@/lib/catalog/store";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  // Rewrite the static fragments' stub product links to real, live catalogue
+  // handles so every product card opens a valid PDP (see makeProductLinker).
+  const products = await getStorefrontProducts().catch(() => []);
+  const linkify = makeProductLinker(products.map((p) => p.handle || p.slug));
+
   // ---- Desktop tree (>= lg) ----
   const dm = loadManifest("sections");
-  const d = (name) => ({ item: dm.items[name], html: loadHtml(name, "sections") });
+  const d = (name) => ({ item: dm.items[name], html: linkify(loadHtml(name, "sections")) });
   const dHeader = d("header");
   const dBanner = d("banner");
   const dSidebar = d("sidebar");
@@ -16,7 +24,7 @@ export default function Home() {
 
   // ---- Mobile tree (< lg) ----
   const mm = loadManifest("mobile");
-  const m = (name) => ({ item: mm.items[name], html: loadHtml(name, "mobile") });
+  const m = (name) => ({ item: mm.items[name], html: linkify(loadHtml(name, "mobile")) });
   const mFooter = m("footer");
   const mInside = mm.order.filter((n) => n !== "footer"); // header..bottom-nav
 

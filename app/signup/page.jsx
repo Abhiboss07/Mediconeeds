@@ -4,6 +4,8 @@ import { isGoogleEnabled } from "@/lib/config";
 
 export const metadata = { title: "Sign Up" };
 
-export default function Page() {
-  return <SiteChrome content={<SignupForm googleEnabled={isGoogleEnabled()} />} />;
+export default async function Page({ searchParams }) {
+  const sp = (await searchParams) || {};
+  const callbackUrl = typeof sp.callbackUrl === "string" ? sp.callbackUrl : "";
+  return <SiteChrome content={<SignupForm googleEnabled={isGoogleEnabled()} callbackUrl={callbackUrl} />} />;
 }
