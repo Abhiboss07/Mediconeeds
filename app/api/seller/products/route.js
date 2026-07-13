@@ -7,6 +7,9 @@ import { dbConnect } from "@/lib/db/mongoose";
 import { Product } from "@/lib/db/models/Product";
 import { currentSeller } from "@/lib/seller/current";
 import { runTransaction } from "@/lib/db/transaction";
+import { productBusinessErrors, sanitizeText } from "@/lib/products/rules";
+
+const TEXT_FIELDS = ["name", "brand", "sku", "category", "hsn", "description", "shortDescription"];
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -58,11 +61,22 @@ export async function POST(req) {
   const parsed = CreateSchema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ ok: false, errors: parsed.error.flatten().fieldErrors }, { status: 422 });
 
+  // Shared business rules (MRP≥price, min/max price, GST, stock) — the SAME
+  // validator Bulk Upload uses, so both paths enforce identical rules.
+  const bizErrors = productBusinessErrors(parsed.data);
+  if (bizErrors.length) {
+    const errors = {};
+    for (const e of bizErrors) (errors[e.field] ||= []).push(e.message);
+    return NextResponse.json({ ok: false, errors }, { status: 422 });
+  }
+
   await dbConnect();
 
   try {
     const result = await runTransaction(async (session) => {
       const d = parsed.data;
+      // Neutralize any HTML/markup in seller text before it is stored.
+      for (const k of TEXT_FIELDS) if (typeof d[k] === "string") d[k] = sanitizeText(d[k]);
       const product = new Product({
         ...d, seller: seller._id, image: d.images?.[0],
         // Drafts stay private; anything submitted enters "pending" for approval.

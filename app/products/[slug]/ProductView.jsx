@@ -174,7 +174,7 @@ export default function ProductView({ product, similar = [], brandProducts = [] 
               {images.length > 1 && (
                 <div className="flex gap-2 mt-3 overflow-x-auto mn-noscroll">
                   {images.map((img, i) => (
-                    <button key={img + i} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)} className={`w-[56px] h-[56px] rounded-md bg-white border p-1 shrink-0 flex items-center justify-center ${active === i ? "border-[#3056d3]" : "border-[#e6e9f2] hover:border-[#a0abbb]"}`}>
+                    <button key={img + i} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)} aria-label={`View image ${i + 1} of ${images.length}`} aria-pressed={active === i} className={`w-[56px] h-[56px] rounded-md bg-white border p-1 shrink-0 flex items-center justify-center ${active === i ? "border-[#3056d3]" : "border-[#e6e9f2] hover:border-[#a0abbb]"}`}>
                       <img src={img} alt="" className="w-full h-full object-contain" />
                     </button>
                   ))}
@@ -256,9 +256,9 @@ export default function ProductView({ product, similar = [], brandProducts = [] 
                 <span className="text-[18px] font-extrabold text-[#182a54]">{inr(subtotal)}</span>
               </div>
               <div className="flex items-center justify-between rounded-md border border-[#d5dbeb] h-10 overflow-hidden mb-3">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-11 h-10 text-[#182a54] text-[18px] font-bold hover:bg-[#f7f8fd]">−</button>
+                <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity" className="w-11 h-10 text-[#182a54] text-[18px] font-bold hover:bg-[#f7f8fd]">−</button>
                 <span className="text-[14px] font-bold text-[#182a54]">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="w-11 h-10 text-[#182a54] text-[18px] font-bold hover:bg-[#f7f8fd]">+</button>
+                <button onClick={() => setQty(qty + 1)} aria-label="Increase quantity" className="w-11 h-10 text-[#182a54] text-[18px] font-bold hover:bg-[#f7f8fd]">+</button>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <button onClick={addCart} disabled={!inStock} className={`h-10 rounded-md text-[13px] font-bold border transition-colors disabled:opacity-50 disabled:pointer-events-none ${added ? "bg-[#1e7a5a] text-white border-[#1e7a5a]" : "bg-white text-[#3056d3] border-[#3056d3] hover:bg-[#eef2ff]"}`}>{added ? "Added ✓" : "Add to cart"}</button>

@@ -3,15 +3,43 @@ import { getStorefrontProductByHandle, getStorefrontProducts } from "@/lib/catal
 import ProductView from "./ProductView";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+// ISR: PDPs are cached and refreshed every 2 min instead of full SSR per hit.
+export const revalidate = 120;
+
+const SITE = "https://mediconeeds.com";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = await getStorefrontProductByHandle(slug);
   if (!product) return { title: "Product Not Found" };
+
+  const url = `${SITE}/products/${product.slug}`;
+  // Unique, product-specific description (falls back gracefully).
+  const desc = (product.shortDesc || product.description || `Buy ${product.title} from ${product.brand || "Dr Awish"} on Mediconeeds — dermatologist-formulated, clinically tested.`)
+    .replace(/\s+/g, " ").trim().slice(0, 300);
+  const img = product.images?.[0] || product.image;
+  const image = img ? (img.startsWith("http") ? img : `${SITE}${img}`) : `${SITE}/assets/Main_Doctor.jpg`;
+
+  // The title template ("%s | Mediconeeds") owns branding — don't append it here
+  // (that produced the doubled "— Mediconeeds | Mediconeeds" suffix).
   return {
-    title: `${product.title} — Mediconeeds`,
-    description: product.shortDesc || product.title,
+    title: product.title,
+    description: desc,
+    alternates: { canonical: url },
+    openGraph: {
+      title: product.title,
+      description: desc,
+      url,
+      type: "website",
+      siteName: "Mediconeeds",
+      images: [{ url: image, alt: product.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.title,
+      description: desc,
+      images: [image],
+    },
   };
 }
 

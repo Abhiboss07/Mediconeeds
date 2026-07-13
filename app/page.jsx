@@ -6,7 +6,10 @@ import SearchOverlay from "@/components/SearchOverlay";
 import { loadManifest, loadHtml, makeProductLinker } from "@/lib/fragments";
 import { getStorefrontProducts } from "@/lib/catalog/store";
 
-export const dynamic = "force-dynamic";
+// ISR: render the (mostly static) home at build/first-hit and refresh every 5
+// min, so TTFB is served from cache instead of re-running SSR + a DB query on
+// every request. The catalogue-handle rewrite stays fresh within the window.
+export const revalidate = 300;
 
 export default async function Home() {
   // Rewrite the static fragments' stub product links to real, live catalogue

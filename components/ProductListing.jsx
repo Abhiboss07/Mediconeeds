@@ -101,11 +101,11 @@ function Filters({ facets, sel, toggle, setSingle, commit, priceBounds, offersOn
       <div className="border-b border-[rgba(111,115,132,0.15)] py-4">
         <p className="text-[13px] font-bold text-[#0e1b4d] mb-2.5">Price Range</p>
         <div className="flex items-center gap-2">
-          <input type="number" inputMode="numeric" placeholder={String(priceBounds.min)} value={sel.minP} min={priceBounds.min} max={priceBounds.max}
+          <input type="number" inputMode="numeric" aria-label="Minimum price" placeholder={String(priceBounds.min)} value={sel.minP} min={priceBounds.min} max={priceBounds.max}
             onChange={(e) => setSingle("minP", e.target.value)}
             className="w-full h-[36px] px-2 rounded-[8px] border border-[rgba(111,115,132,0.4)] text-[13px] outline-none focus:border-[#3056D3]" />
           <span className="text-[#9ca3af]">–</span>
-          <input type="number" inputMode="numeric" placeholder={String(priceBounds.max)} value={sel.maxP} min={priceBounds.min} max={priceBounds.max}
+          <input type="number" inputMode="numeric" aria-label="Maximum price" placeholder={String(priceBounds.max)} value={sel.maxP} min={priceBounds.min} max={priceBounds.max}
             onChange={(e) => setSingle("maxP", e.target.value)}
             className="w-full h-[36px] px-2 rounded-[8px] border border-[rgba(111,115,132,0.4)] text-[13px] outline-none focus:border-[#3056D3]" />
         </div>
@@ -271,7 +271,7 @@ function ListingInner({ products, defaultSort = "featured", offersOnly = false }
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h13M3 12h9M3 18h5"/></svg>
             Sort
           </button>
-          <select value={sel.sort} onChange={(e) => setSort(e.target.value)}
+          <select value={sel.sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort products"
             className="hidden lg:block h-[42px] px-3 rounded-[10px] border border-[rgba(111,115,132,0.4)] text-[13px] font-semibold text-[#0e1b4d] bg-white outline-none focus:border-[#3056D3] cursor-pointer">
             {SORT_KEYS.map((k) => <option key={k} value={k}>Sort: {SORTS[k].label}</option>)}
           </select>

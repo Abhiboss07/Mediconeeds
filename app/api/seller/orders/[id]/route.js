@@ -6,6 +6,21 @@ import { dbConnect } from "@/lib/db/mongoose";
 import { Order, ORDER_FLOW } from "@/lib/db/models/Order";
 import { currentSeller } from "@/lib/seller/current";
 
+// Owner-scoped single-order read (parity with the products route; fixes the
+// prior 405 on GET). Returns the order only if it belongs to the current seller.
+export async function GET(_req, { params }) {
+  const g = await apiGuard("seller");
+  if (!g.ok) return NextResponse.json({ ok: false }, { status: g.status });
+  const seller = await currentSeller();
+  if (!seller) return NextResponse.json({ ok: false, error: "No seller profile" }, { status: 403 });
+
+  const { id } = await params;
+  await dbConnect();
+  const order = await Order.findOne({ orderNo: id, seller: seller._id }).lean();
+  if (!order) return NextResponse.json({ ok: false, error: "Order not found" }, { status: 404 });
+  return NextResponse.json({ ok: true, order: { ...order, id: String(order._id), _id: undefined } });
+}
+
 export async function POST(req, { params }) {
   const g = await apiGuard("seller");
   if (!g.ok) return NextResponse.json({ ok: false }, { status: g.status });
