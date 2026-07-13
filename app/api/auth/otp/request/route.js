@@ -9,6 +9,9 @@ import { dbConnect } from "@/lib/db/mongoose";
 import { User } from "@/lib/db/models/User";
 import { issueOtp } from "@/lib/auth/otp";
 import { normalizePhone } from "@/lib/services/sms";
+import { rateLimit } from "@/lib/bulk/ratelimit";
+
+const clientIp = (req) => (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || req.headers.get("x-real-ip") || "unknown";
 
 const Schema = z.object({
   identifier: z.string().trim().min(3),
@@ -23,6 +26,11 @@ export async function POST(req) {
   const parsed = Schema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ ok: false, error: "Enter a valid mobile or email." }, { status: 422 });
   const { identifier, channel, purpose } = parsed.data;
+
+  // SEC-02 — per-IP burst limit so one source can't spam OTPs to many different
+  // addresses (email/SMS bombing). The per-identifier hourly cap lives in issueOtp.
+  const ipRl = rateLimit(`otp-ip:${clientIp(req)}`, { max: 15, windowMs: 60 * 60_000 });
+  if (!ipRl.ok) return NextResponse.json({ ok: false, error: "Too many requests from this network. Please try again later." }, { status: 429, headers: { "retry-after": String(ipRl.retryAfter) } });
 
   // Shape validation per channel.
   if (channel === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(identifier))

@@ -51,8 +51,11 @@ export default function LoginForm({ googleEnabled = false, callbackUrl = "" }) {
     setErr("");
     if (!identifier.trim() || !password) return setErr("Enter your email and password.");
     setLoading(true);
-    const res = await signIn("credentials", { email: identifier.trim(), password, redirect: false });
+    let res;
+    try { res = await signIn("credentials", { email: identifier.trim(), password, redirect: false }); }
+    catch { res = { status: 0, error: "SignInError" }; }
     setLoading(false);
+    if (res?.status === 429) return setErr("Too many failed sign-in attempts. Please wait a few minutes and try again.");
     if (res?.error) return setErr("Invalid email or password.");
     await done();
   }
