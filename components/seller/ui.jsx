@@ -46,21 +46,37 @@ export function StatCard({ label, value, sub, tone = "blue", icon }) {
 }
 
 // ---- Charts (pure SVG, no deps) ----
-export function BarChart({ data, height = 160, format = (v) => v }) {
+// Axis labels are rendered as real HTML (not stretched SVG <text>) so month
+// names stay crisp, high-contrast and evenly spaced on desktop and mobile.
+function AxisLabels({ data, spread }) {
+  return (
+    <div className={"mt-2 flex " + (spread ? "justify-between px-0.5" : "")}>
+      {data.map((d, i) => (
+        <span
+          key={d.m || d.label || i}
+          className={(spread ? "" : "flex-1 ") + "text-center text-[11px] sm:text-[12px] font-semibold tracking-wide text-[#4b5563] tabular-nums whitespace-nowrap overflow-hidden text-ellipsis"}
+        >
+          {d.m || d.label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export function BarChart({ data, height = 160 }) {
   const max = Math.max(...data.map((d) => d.val), 1);
   const bw = 100 / data.length;
+  const plotH = Math.max(height - 24, 40); // reserve room for the HTML labels
   return (
-    <svg viewBox={`0 0 100 ${height / 2}`} preserveAspectRatio="none" className="w-full" style={{ height }}>
-      {data.map((d, i) => {
-        const h = (d.val / max) * (height / 2 - 14);
-        return (
-          <g key={d.m || i}>
-            <rect x={i * bw + bw * 0.22} y={height / 2 - 10 - h} width={bw * 0.56} height={h} rx="1.2" fill="#3056D3" />
-            <text x={i * bw + bw / 2} y={height / 2 - 2} textAnchor="middle" fontSize="3.4" fill="#9ca3af">{d.m || d.label}</text>
-          </g>
-        );
-      })}
-    </svg>
+    <div className="w-full">
+      <svg viewBox={`0 0 100 ${plotH / 2}`} preserveAspectRatio="none" className="w-full block" style={{ height: plotH }}>
+        {data.map((d, i) => {
+          const h = (d.val / max) * (plotH / 2 - 4);
+          return <rect key={d.m || i} x={i * bw + bw * 0.22} y={plotH / 2 - h} width={bw * 0.56} height={h} rx="1.2" fill="#3056D3" />;
+        })}
+      </svg>
+      <AxisLabels data={data} />
+    </div>
   );
 }
 
@@ -68,21 +84,24 @@ export function LineChart({ data, height = 160 }) {
   const max = Math.max(...data.map((d) => d.val), 1);
   const min = Math.min(...data.map((d) => d.val));
   const span = max - min || 1;
-  const W = 100, H = height / 2;
+  const plotH = Math.max(height - 24, 40); // reserve room for the HTML labels
+  const W = 100, H = plotH / 2;
   const pts = data.map((d, i) => {
     const x = (i / (data.length - 1)) * W;
-    const y = H - 8 - ((d.val - min) / span) * (H - 18);
+    const y = H - 4 - ((d.val - min) / span) * (H - 10);
     return [x, y];
   });
   const path = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
-  const area = path + ` L ${W} ${H - 8} L 0 ${H - 8} Z`;
+  const area = path + ` L ${W} ${H - 4} L 0 ${H - 4} Z`;
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="w-full" style={{ height }}>
-      <path d={area} fill="rgba(48,86,211,0.10)" />
-      <path d={path} fill="none" stroke="#3056D3" strokeWidth="1.2" />
-      {pts.map((p, i) => <circle key={i} cx={p[0]} cy={p[1]} r="1.1" fill="#3056D3" />)}
-      {data.map((d, i) => <text key={i} x={(i / (data.length - 1)) * W} y={H - 1} textAnchor="middle" fontSize="3.4" fill="#9ca3af">{d.m}</text>)}
-    </svg>
+    <div className="w-full">
+      <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="w-full block" style={{ height: plotH }}>
+        <path d={area} fill="rgba(48,86,211,0.10)" />
+        <path d={path} fill="none" stroke="#3056D3" strokeWidth="1.2" />
+        {pts.map((p, i) => <circle key={i} cx={p[0]} cy={p[1]} r="1.1" fill="#3056D3" />)}
+      </svg>
+      <AxisLabels data={data} spread />
+    </div>
   );
 }
 
