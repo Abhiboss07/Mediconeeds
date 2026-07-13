@@ -74,6 +74,14 @@ export async function POST(req) {
 
     return NextResponse.json({ ok: true, id: result.id, status: result.status }, { status: 201 });
   } catch (err) {
+    // Duplicate key on the unique {seller, slug} index → a live product with the
+    // same name already exists. That's a client conflict, not a server fault.
+    if (err?.code === 11000) {
+      return NextResponse.json(
+        { ok: false, error: "You already have a product with this name. Use a different name." },
+        { status: 409 }
+      );
+    }
     console.error("[SELLER_POST] Transaction aborted:", err);
     return NextResponse.json({ ok: false, error: err.message || "Transaction error" }, { status: 500 });
   }
