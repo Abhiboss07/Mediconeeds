@@ -30,7 +30,12 @@ export default function Interactions() {
     // --- Session-aware account control --------------------------------------
     let menuEl = null;
     const loginBtn = headerBtns.find((b) => b.textContent.trim().startsWith("Login"));
-    const mobileAcct = document.querySelector('header a[href="/account"]');
+    // Every account entry point that must be role-aware: the mobile header
+    // account icon AND the mobile bottom-nav "Profile" tab (which lives OUTSIDE
+    // <header>, so it needs to be selected explicitly). Both default to /account
+    // in the static markup; we rewrite them to the caller's real landing page
+    // (or /login for guests) so a tap never lands on the wrong role's portal.
+    const acctLinks = Array.from(document.querySelectorAll('header a[href="/account"], #accountTab'));
 
     function buildMenu(landing) {
       const el = document.createElement("div");
@@ -73,10 +78,10 @@ export default function Interactions() {
           loginBtn.addEventListener("click", (e) => { e.preventDefault(); toggleMenu(loginBtn, landing); });
           document.addEventListener("click", onDocClick);
         }
-        if (mobileAcct) mobileAcct.setAttribute("href", landing);
+        acctLinks.forEach((a) => a.setAttribute("href", landing));
       } else {
         if (loginBtn) { loginBtn.style.cursor = "pointer"; loginBtn.addEventListener("click", goLogin); }
-        if (mobileAcct) mobileAcct.setAttribute("href", "/login");
+        acctLinks.forEach((a) => a.setAttribute("href", "/login"));
       }
     })();
 
