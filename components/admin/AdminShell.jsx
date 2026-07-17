@@ -28,8 +28,12 @@ export default function AdminShell({ active, title, subtitle, actions, children 
           <a key={n.href} href={n.href} onClick={() => setOpen(false)} className={`flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold ${active === n.href ? "bg-[#3056D3] text-white" : "text-[#cfd6ea] hover:bg-white/10"}`}><Icon d={n.icon} />{n.label}</a>
         ))}
       </nav>
-      <div className="px-3 pb-4 border-t border-white/10">
-        <a href="/seller/dashboard" className="flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold text-[#cfd6ea] hover:bg-white/10"><Icon d="M3 12h13M12 5l7 7-7 7" />Seller portal</a>
+      <div className="px-3 pb-4 pt-2 border-t border-white/10">
+        {/* Explicit, intentional entry point into the seller portal for oversight.
+            Admins are never auto-routed here — they must choose to open it, and
+            a banner inside the portal makes the admin-view unmistakable. */}
+        <a href="/seller/dashboard" title="View the seller portal as an administrator" className="flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-[13.5px] font-semibold text-white bg-white/10 hover:bg-white/20 transition-colors"><Icon d="M3 12h13M12 5l7 7-7 7M21 4v16" />Open Seller Portal</a>
+        <p className="px-3 pt-1.5 text-[11px] text-[#8b93b3] leading-tight">Opens as administrator — not a seller account</p>
       </div>
     </div>
   );

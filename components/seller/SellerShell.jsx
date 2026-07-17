@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSellerStore, useHydrateSeller } from "@/lib/seller/store";
 
 const NAV = [
@@ -25,6 +25,18 @@ export default function SellerShell({ active, title, subtitle, actions, children
   const s = useSellerStore();
   const seller = s.seller;
   const unread = s.notifications.filter((n) => !n.read).length;
+
+  // The seller portal is hierarchical for staff: an admin/superadmin MAY open it
+  // for oversight (via the explicit "Open Seller Portal" action in the admin
+  // panel), but they are NOT a seller. Detect that and show an unmistakable
+  // banner so there is never any confusion about whose portal this is.
+  const [viewerRole, setViewerRole] = useState(null);
+  useEffect(() => {
+    let on = true;
+    fetch("/api/auth/session").then((r) => r.json()).then((d) => { if (on) setViewerRole(d?.user?.role || null); }).catch(() => {});
+    return () => { on = false; };
+  }, []);
+  const isAdminView = viewerRole === "admin" || viewerRole === "superadmin";
 
   const SideNav = (
     <nav className="flex flex-col gap-0.5 px-3">
@@ -69,6 +81,20 @@ export default function SellerShell({ active, title, subtitle, actions, children
       )}
 
       <div className="flex-1 lg:ml-[248px] min-w-0 flex flex-col">
+        {/* Admin-oversight banner: shown ONLY when a (super)admin is viewing the
+            seller portal, so an administrator is never mistaken for a seller. */}
+        {isAdminView && (
+          <div role="status" className="sticky top-0 z-40 flex items-center justify-between gap-3 bg-[#e0633a] text-white px-4 lg:px-7 py-2.5 text-[13px] font-semibold shadow-[0_2px_10px_rgba(224,99,58,0.35)]">
+            <span className="flex items-center gap-2 min-w-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /></svg>
+              <span className="truncate">Viewing Seller Portal as Administrator — you are not signed in as a seller.</span>
+            </span>
+            <a href="/admin" className="shrink-0 inline-flex items-center gap-1.5 bg-white/20 hover:bg-white/30 transition-colors rounded-full px-3 py-1 text-[12px] font-bold">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back to Admin
+            </a>
+          </div>
+        )}
         {/* topbar */}
         <header className="sticky top-0 z-30 bg-white border-b border-[rgba(111,115,132,0.16)] h-[60px] flex items-center gap-3 px-4 lg:px-7">
           <button onClick={() => setOpen(true)} className="lg:hidden text-[#0e1b4d]" aria-label="Open menu">
