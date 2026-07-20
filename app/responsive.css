@@ -9,6 +9,24 @@
   }
 }
 
+/* Horizontal gutter between the Explore rail and the content column.
+ * .mc-content is the desktop flex row holding [sidebar | right column]
+ * (page.jsx). A column-gap here separates the rail from every section at
+ * once — Shop by Category/Ingredient, Bestsellers, New Arrivals, etc. all
+ * live in the right column — so the rail reads as its own panel, matching
+ * premium storefronts (Nykaa/Tira/Amazon). ~24px, widening to 32px on
+ * large desktops. Card widths, sidebar width and structure are untouched;
+ * the right column is min-w-0 + overflow-hidden, so no horizontal overflow.
+ * Desktop-only tree, so no effect on tablet/mobile (separate DOM). */
+.mc-content {
+  column-gap: 24px;
+}
+@media (min-width: 1280px) {
+  .mc-content {
+    column-gap: 32px;
+  }
+}
+
 /* ============================================================
    Responsive data tables → stacked cards on mobile (< lg).
    Add class `mc-rtable` to a <table> and `data-label` to each <td>.
