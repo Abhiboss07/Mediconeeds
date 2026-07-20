@@ -10,6 +10,42 @@ import ProductRail from "@/components/ProductRail";
 import { loadManifest, loadHtml, makeProductLinker } from "@/lib/fragments";
 import { getStorefrontProducts, getHomeCategoryCounts, getIngredientCounts, getNewArrivals } from "@/lib/catalog/store";
 import ingredientTaxonomy from "@/data/catalog/ingredients.json";
+import { site } from "@/lib/site";
+
+// Homepage structured data (QA finding L-2). Organization gives Google the brand
+// identity + logo + verified social profiles (sameAs); WebSite + SearchAction
+// enables the sitelinks search box. Product schema lives on the PDP separately.
+const homeJsonLd = (() => {
+  const base = site.seo.canonical.replace(/\/$/, "");
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: site.brand.name,
+      url: base,
+      logo: `${base}/icon.svg`,
+      sameAs: [site.social.instagram, site.social.facebook, site.social.youtube].filter(Boolean),
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: site.contact.phoneDisplay,
+        email: site.contact.email,
+        contactType: "customer service",
+        areaServed: "IN",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: site.brand.name,
+      url: base,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: { "@type": "EntryPoint", urlTemplate: `${base}/search?q={search_term_string}` },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ];
+})();
 
 // Homepage section slots → the reference section title + which REAL products it
 // shows. Each source is a genuine filter (tags/category/discount), never padded
@@ -93,6 +129,8 @@ export default async function Home() {
 
   return (
     <div className="__className_5f1e15 block">
+      {/* SEO structured data (Organization + WebSite/SearchAction) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }} />
       {/* ===================== DESKTOP ===================== */}
       <div className="hidden lg:block">
         <div className="bg-[#F7FAFF] ">
