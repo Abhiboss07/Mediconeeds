@@ -17,7 +17,8 @@ const csp = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   "connect-src 'self' https://*.razorpay.com https://lumberjack.razorpay.com",
-  "frame-src 'self' https://api.razorpay.com https://checkout.razorpay.com https://*.razorpay.com",
+  // Razorpay checkout frames + the Google Maps embed on /contact.
+  "frame-src 'self' https://api.razorpay.com https://checkout.razorpay.com https://*.razorpay.com https://www.google.com https://maps.google.com",
   "worker-src 'self' blob:",
   "manifest-src 'self'",
   "upgrade-insecure-requests",
