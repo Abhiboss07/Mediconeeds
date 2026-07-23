@@ -3,6 +3,7 @@ import Interactions from "@/components/Interactions";
 import AddressPortal from "@/components/AddressPortal";
 import MegaMenu from "@/components/MegaMenu";
 import SearchOverlay from "@/components/SearchOverlay";
+import MobileFooter from "@/components/mobile/MobileFooter";
 import { loadManifest, loadHtml } from "@/lib/fragments";
 
 /**
@@ -47,7 +48,7 @@ export default function SiteChrome({
         {showBottomNav && (
           <Frag item={mItem("bottom-nav")} html={loadHtml("bottom-nav", "mobile")} />
         )}
-        <Frag item={mItem("footer")} html={loadHtml("footer", "mobile")} />
+        <MobileFooter />
       </div>
 
       <Interactions />
