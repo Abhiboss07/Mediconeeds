@@ -11,13 +11,11 @@ export default async function Page(){
   const items=(await getStorefrontProducts()).slice(0,10);
   const content=(
     <div className="max-w-[84rem] mx-auto px-4 lg:px-8 py-6 lg:py-10">
-      {/* Native GET form → hands the query to the full listing at /products */}
-      <form action="/products" method="get" className="flex items-center h-[48px] px-4 rounded-full border border-[rgba(111,115,132,0.4)] bg-white max-w-[640px]">
-        <span className="text-[#64748B] mr-2">🔍</span>
-        <input name="q" placeholder="Search for serums, sunscreen, ingredients…" className="flex-1 outline-none text-[15px]"/>
-        <button type="submit" className="text-[13px] font-bold text-[#3056D3] px-2">Search</button>
-      </form>
-      <div className="mt-6 grid lg:grid-cols-[260px_1fr] gap-6">
+      {/* No search input here: the one live field is rendered by SiteChrome's
+          searchMode, which swaps it into the (sticky) header itself. This page
+          used to ship its own <form> on top of that, which is why /search
+          showed two search bars. */}
+      <div className="grid lg:grid-cols-[260px_1fr] gap-6">
         <aside className="space-y-6">
           <div><h3 className="text-[13px] font-bold tracking-[0.1em] text-[#3056D3] uppercase mb-2">Trending</h3><div className="flex flex-wrap gap-2">{trending.map(t=>(<a key={t} href={toSearch(t)} className="text-[13px] bg-[#f5f6fb] rounded-full px-3 py-1.5 text-[#0e1b4d] hover:bg-[#e8ebf7]">{t}</a>))}</div></div>
           <div><h3 className="text-[13px] font-bold tracking-[0.1em] text-[#3056D3] uppercase mb-2">Shop by Concern</h3><div className="flex flex-wrap gap-2">{concerns.map(t=>(<a key={t} href={toSearch(t)} className="text-[13px] bg-[#f5f6fb] rounded-full px-3 py-1.5 text-[#0e1b4d] hover:bg-[#e8ebf7]">{t}</a>))}</div></div>
@@ -28,5 +26,5 @@ export default async function Page(){
         </div>
       </div>
     </div>);
-  return <SiteChrome content={content}/>;
+  return <SiteChrome content={content} searchMode/>;
 }

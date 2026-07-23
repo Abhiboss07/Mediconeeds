@@ -22,9 +22,15 @@ export default function Interactions() {
     const headerBtns = Array.from(document.querySelectorAll("header button"));
     const goLogin = (e) => { e.preventDefault(); window.location.href = "/login"; };
     const openSearch = (e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent("mn:open-search")); };
+    // Both header search controls open the overlay. The mobile one is icon-only
+    // (no "Search for" text node), so matching on the label alone left it dead:
+    // tapping it did nothing. Match the aria-label too.
     headerBtns.forEach((b) => {
       const t = b.textContent.trim();
-      if (b.querySelector("p") && /Search for/i.test(t)) { b.style.cursor = "pointer"; b.addEventListener("click", openSearch); }
+      const isSearch =
+        b.getAttribute("aria-label") === "Search products" ||
+        (b.querySelector("p") && /Search for/i.test(t));
+      if (isSearch) { b.style.cursor = "pointer"; b.addEventListener("click", openSearch); cleanups.push(() => b.removeEventListener("click", openSearch)); }
     });
 
     // --- Session-aware account control --------------------------------------
