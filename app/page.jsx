@@ -4,6 +4,7 @@ import Interactions from "@/components/Interactions";
 import AddressPortal from "@/components/AddressPortal";
 import MegaMenu from "@/components/MegaMenu";
 import SearchOverlay from "@/components/SearchOverlay";
+import MobileFooter from "@/components/mobile/MobileFooter";
 import ShopByCategory from "@/components/ShopByCategory";
 import ShopByIngredient from "@/components/ShopByIngredient";
 import ProductRail from "@/components/ProductRail";
@@ -124,7 +125,6 @@ export default async function Home() {
 
   // ---- Mobile tree (< lg) ----
   const mm = loadManifest("mobile");
-  const mFooter = { item: mm.items["footer"], html: linkify(loadHtml("footer", "mobile")) };
   const mInside = mm.order.filter((n) => n !== "footer");
 
   return (
@@ -156,7 +156,7 @@ export default async function Home() {
         <div className="bg-[#F7FAFF] overflow-x-clip">
           {mInside.map((name) => renderSection(name, true))}
         </div>
-        <Frag item={mFooter.item} html={mFooter.html} />
+        <MobileFooter />
       </div>
 
       {/* Client behaviour for both trees */}
