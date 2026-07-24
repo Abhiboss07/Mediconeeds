@@ -35,14 +35,37 @@ export default function Page() {
         <StatCard label="Cancelled" value={data.byStatus.cancelled || 0} tone="red" icon="✕" />
       </div>
 
-      <div className="flex flex-wrap items-center gap-1.5 mb-3">
-        {STATUS_TABS.map(([k, label]) => (
-          <button key={k} onClick={() => setStatus(k)} className={`h-9 px-3.5 rounded-full text-[13px] font-semibold ${status === k ? "bg-[#3056D3] text-white" : "bg-white border border-[rgba(111,115,132,0.3)] text-[#0e1b4d]"}`}>{label}</button>
-        ))}
-        <span className="mx-1 text-[#cbd2e0]">|</span>
-        {[["all", "All pay"], ["cod", "COD"], ["online", "Online"]].map(([k, label]) => (
-          <button key={k} onClick={() => setPayment(k)} className={`h-9 px-3.5 rounded-full text-[13px] font-semibold ${payment === k ? "bg-[#0e1b4d] text-white" : "bg-white border border-[rgba(111,115,132,0.3)] text-[#0e1b4d]"}`}>{label}</button>
-        ))}
+      <div className="mb-4 space-y-3">
+        <div>
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.06em] text-[#6b7280]">Order status</p>
+          <div className="flex flex-wrap gap-2">
+            {STATUS_TABS.map(([k, label]) => (
+              <button
+                key={k}
+                onClick={() => setStatus(k)}
+                aria-pressed={status === k}
+                className={`inline-flex h-10 min-w-[64px] items-center justify-center rounded-full px-4 text-[13px] font-semibold transition-all duration-200 active:scale-[0.97] ${status === k ? "bg-[#3056D3] text-white shadow-sm" : "bg-white border border-[rgba(111,115,132,0.3)] text-[#0e1b4d] hover:border-[#3056D3] hover:text-[#3056D3]"}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.06em] text-[#6b7280]">Payment type</p>
+          <div className="flex flex-wrap gap-2">
+            {[["all", "All pay"], ["cod", "COD"], ["online", "Online"]].map(([k, label]) => (
+              <button
+                key={k}
+                onClick={() => setPayment(k)}
+                aria-pressed={payment === k}
+                className={`inline-flex h-10 min-w-[64px] items-center justify-center rounded-full px-4 text-[13px] font-semibold transition-all duration-200 active:scale-[0.97] ${payment === k ? "bg-[#0e1b4d] text-white shadow-sm" : "bg-white border border-[rgba(111,115,132,0.3)] text-[#0e1b4d] hover:border-[#0e1b4d] hover:text-[#0e1b4d]"}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <SectionCard title={`Orders (${data.orders.length})`}>
